@@ -1,0 +1,226 @@
+:root {
+    --color-principal: #1a1a1a;
+    --color-texto: #333333;
+    --color-blanco: #ffffff;
+    --color-monche: #4ba3e3;
+    --color-principe: #f39c12;
+    --color-tim: #2c3e50;
+    --color-gasper: #ecf0f1;
+    --color-mrs: #c0392b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* HEADER FIJO */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #111;
+    border-bottom: 4px solid var(--color-principe);
+    z-index: 1000;
+}
+
+.header-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 15px 30px;
+}
+
+.site-logo {
+    height: 55px;
+    width: auto;
+}
+
+.title-container h1 {
+    color: var(--color-blanco);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.menu-checkbox { display: none; }
+
+.menu-button {
+    color: var(--color-blanco);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 150%;
+    right: 0;
+    background-color: #1a1a1a;
+    width: 260px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.dropdown-menu li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 14px 24px;
+    display: block;
+    font-weight: 600;
+}
+
+.dropdown-menu li a:hover { background: rgba(255,255,255,0.1); }
+
+.menu-checkbox:checked ~ .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header-spacing { height: 90px; }
+
+/* INTRO */
+.intro-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background: var(--color-blanco);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* CARDS GRID */
+.grid-personalidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: var(--color-blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-header {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-blanco);
+}
+
+.card-tag {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-curso {
+    display: inline-block;
+    padding: 12px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 15px;
+}
+
+/* ASIGNACIÓN DE COLORES */
+.card-monche .card-header, .card-monche .btn-curso { background: var(--color-monche); }
+.card-principe .card-header, .card-principe .btn-curso { background: var(--color-principe); }
+.card-tim .card-header, .card-tim .btn-curso { background: var(--color-tim); }
+.card-gasper .card-header { background: var(--color-gasper); color: #333; border-bottom: 1px solid #ddd; }
+.card-gasper .card-tag { background: rgba(0,0,0,0.05); }
+.card-gasper .btn-curso { background: #34495e; }
+.card-mrs .card-header, .card-mrs .btn-curso { background: var(--color-mrs); }
+
+/* ESTILOS TARJETA DE REDES SOCIALES */
+.card-social {
+    grid-column: span 1;
+    background: #1e1e1e;
+    color: #fff;
+}
+.social-header { background: #111; border-bottom: 2px solid var(--color-monche); }
+.social-body { padding: 15px 20px; text-align: left; display: block; }
+.social-group { margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.social-group:last-child { border: none; }
+.social-group h4 { font-size: 1rem; margin-bottom: 5px; color: #f39c12; }
+.social-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.social-links a { color: #bbb; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.social-links a:hover { color: #fff; }
+
+/* FOOTER */
+.main-footer { background-color: var(--color-principal); text-align: center; padding: 40px 20px; margin-top: 60px; border-top: 4px solid var(--color-mrs); }
+.footer-phrase { color: var(--color-blanco); font-size: 1.2rem; font-style: italic; margin-bottom: 10px; }
+.footer-copy { color: #666; font-size: 0.85rem; }
+
+@media(max-width:768px) {
+    .header-content { grid-template-columns: auto 1fr auto; padding: 10px; }
+    .title-container h1 { font-size: 1.1rem; }
+    .header-spacing { height: 75px; }
+}
