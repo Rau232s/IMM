@@ -210,13 +210,14 @@ body {
 .card-img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Mantiene la proporción de tus banners sin estirarlos */
+    object-fit: cover !important; /* Corta y adapta la imagen proporcionalmente sin estirarla */
+    object-position: center !important; /* Mantiene el enfoque justo en el centro de la imagen */
     display: block !important;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
 }
-
+    
 .card-header {
     padding: 20px !important;
     text-align: center !important;
