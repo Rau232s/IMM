@@ -1,14 +1,602 @@
+/* ==========================================================================
+   CONFIGURACIÓN INDEPENDIENTE - LA LIBRERÍA DE MR S
+   ========================================================================== */
+
 @import url('../styles.css');
-:root { --page-color: #c0392b; }
-body { background-color: #fdf2f2; color: #4a1510; }
-.main-header { border-bottom: 4px solid var(--page-color); }
-.landing-hero { text-align: center; padding: 60px 20px; background: #f9d5d2; }
-.landing-hero h2 { font-size: 2.5rem; color: #962d22; margin-bottom: 10px; }
-.landing-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-.course-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; background: #fff; padding: 25px; border-radius: 12px; border-left: 5px solid var(--page-color); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-.showcase-img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; }
-.showcase-details { display: flex; flex-direction: column; justify-content: center; }
-.showcase-details h3 { font-size: 1.8rem; margin-bottom: 15px; color: #2c3e50; }
-.price { font-size: 1.5rem; font-weight: bold; color: var(--page-color); margin: 15px 0; }
-.btn-buy { display: inline-block; text-align: center; background: var(--page-color); color: #fff; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 25px; transition: background 0.2s; }
-.btn-buy:hover { background: #962d22; }
+
+:root {
+    --page-color: #c0392b;          /* Rojo principal */
+    --page-color-dark: #962d22;     /* Rojo oscuro hover */
+    --bg-dark-academic: #121212;    /* Fondo oscuro premium */
+    --card-bg-dark: #1e1e1e;        /* Tarjetas oscuras */
+    --text-muted-light: #b3b3b3;    /* Textos secundarios */
+    --gold-accent: #f39c12;         /* Dorado para badges */
+}
+
+/* Reescritura del cuerpo para estética premium/académica oscura */
+body {
+    background-color: #0b0b0b;
+    color: #f5f5f5;
+}
+
+/* Mantenemos el borde identitario del header */
+.main-header {
+    border-bottom: 4px solid var(--page-color);
+}
+
+/* ==========================================================================
+   HERO SECTION (Inspirado en MasterClass)
+   ========================================================================== */
+.landing-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background: #1a0806; /* Tinte sutil rojizo de fondo */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(11,11,11,0.5) 0%, rgba(11,11,11,1) 100%);
+    z-index: 1;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.hero-badge {
+    background: rgba(192, 57, 43, 0.2);
+    border: 1px solid var(--page-color);
+    color: #f39c12;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.landing-hero h2 {
+    font-size: 3.2rem;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.landing-hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted-light);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-hero {
+    padding: 14px 28px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hero.btn-primary {
+    background-color: var(--page-color);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+}
+
+.btn-hero.btn-primary:hover {
+    background-color: var(--page-color-dark);
+    transform: translateY(-2px);
+}
+
+.btn-hero.btn-secondary {
+    background-color: rgba(255,255,255,0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.btn-hero.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.3);
+}
+
+/* ==========================================================================
+   ESTILOS DE SECCIONES (Estructura Común Reutilizable)
+   ========================================================================== */
+.section-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 25px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--page-color);
+}
+
+.section-subtitle {
+    color: var(--text-muted-light);
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   SECCIÓN CUENTOS (Estilo Medium / Premium)
+   ========================================================================== */
+.literary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 35px;
+}
+
+.story-card {
+    background-color: var(--card-bg-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    border: 1px solid #252525;
+    transition: all 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--page-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.story-img-placeholder {
+    width: 150px;
+    min-width: 150px;
+    background: linear-gradient(135deg, var(--page-color-dark), #1c1c1c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.story-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.story-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.story-category {
+    color: var(--gold-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.story-time {
+    color: #888;
+}
+
+.story-content h4 {
+    font-size: 1.35rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.story-content p {
+    color: var(--text-muted-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.story-link {
+    color: var(--page-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+}
+
+.story-link:hover {
+    color: #f39c12;
+}
+
+/* ==========================================================================
+   SECCIÓN PODCAST (Diseño Horizontal Equilibrado)
+   ========================================================================== */
+.podcast-section {
+    background-color: #111111;
+    padding: 60px 40px;
+    border-radius: 16px;
+    border: 1px solid #222;
+}
+
+.podcast-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.podcast-badge {
+    color: var(--page-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.podcast-info h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 10px 0 20px 0;
+}
+
+.podcast-info p {
+    color: var(--text-muted-light);
+    margin-bottom: 30px;
+}
+
+.podcast-platforms {
+    display: flex;
+    gap: 12px;
+}
+
+.platform-btn {
+    background: #222;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.platform-btn:hover {
+    background: #333;
+}
+
+.spotify-iframe-placeholder {
+    background: #181818;
+    border: 2px dashed #282828;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    color: #888;
+}
+
+.spotify-icon {
+    font-size: 3.5rem;
+    color: #1ed760;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   ACADEMIA (Tarjetas de Cursos Estilo Coursera Premium)
+   ========================================================================== */
+.academy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.course-card-premium {
+    background: var(--card-bg-dark);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #252525;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+.course-badge.gold { background: var(--gold-accent); color: #000; }
+.course-badge.gray { background: #444; color: #fff; }
+
+.course-card-hero {
+    height: 180px;
+    width: 100%;
+}
+
+.course-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course-placeholder-img {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2c3e50, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgba(255,255,255,0.2);
+}
+
+.course-premium-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.course-level {
+    color: var(--page-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.course-premium-body h4 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.course-premium-body p {
+    color: var(--text-muted-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.course-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.course-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-enroll {
+    background: transparent;
+    border: 1px solid var(--page-color);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-enroll:hover:not(.disabled) {
+    background: var(--page-color);
+    box-shadow: 0 0 10px rgba(192, 57, 43, 0.4);
+}
+
+.btn-enroll.disabled {
+    border-color: #444;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SECCIONES ADICIONALES (Newsletter, Support & Comunidad)
+   ========================================================================== */
+
+/* Newsletter */
+.newsletter-section {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 0 25px;
+}
+
+.newsletter-card {
+    background: linear-gradient(135deg, #181313 0%, #1a0a09 100%);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.newsletter-card h4 { font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
+.newsletter-card p { color: var(--text-muted-light); margin-bottom: 25px; font-size: 0.95rem; }
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto 15px auto;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 14px 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #111;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--page-color);
+}
+
+.newsletter-submit {
+    background: var(--page-color);
+    color: #fff;
+    border: none;
+    padding: 0 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.newsletter-submit:hover { background: var(--page-color-dark); }
+.newsletter-perk { font-size: 0.75rem; color: #666; display: block; }
+
+/* Support Section */
+.support-section {
+    background: #0f0f0f;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.support-content { max-width: 750px; margin: 0 auto; }
+.support-content h3 { font-size: 1.8rem; color: #fff; margin-bottom: 15px; }
+.support-content p { color: var(--text-muted-light); margin-bottom: 30px; font-size: 0.95rem; }
+
+.support-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-support {
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #fff;
+    transition: transform 0.2s;
+}
+
+.btn-support:hover { transform: translateY(-2px); }
+.btn-support.paypal { background: #003087; }
+.btn-support.kofi { background: #29abe2; }
+.btn-support.patreon { background: #f96854; }
+
+/* Comunidad */
+.community-cta {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #0b0b0b, #181313, #0b0b0b);
+}
+
+.community-inner h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; }
+.community-inner p { color: var(--text-muted-light); max-width: 600px; margin: 0 auto; }
+
+/* ==========================================================================
+   FOOTER ROBUSTO Y ACADÉMICO
+   ========================================================================== */
+.footer-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto 30px auto;
+    border-top: 1px solid #222;
+    padding-top: 30px;
+    text-align: left;
+}
+
+.footer-column h5 {
+    color: var(--page-color);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.footer-column a {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD Y ADAPTACIÓN MÓVIL EXTREMA
+   ========================================================================== */
+@media (max-width: 768px) {
+    .landing-hero h2 { font-size: 2.2rem; }
+    .literary-grid { grid-template-columns: 1fr; }
+    .story-card { flex-direction: column; }
+    .story-img-placeholder { width: 100%; height: 120px; }
+    .podcast-wrapper { grid-template-columns: 1fr; gap: 30px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-submit { padding: 14px; }
+    .footer-links-container { text-align: center; }
+}

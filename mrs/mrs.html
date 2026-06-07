@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Librería de Mr S - Cursos Online</title>
+    <title>La Librería de Mr S - Literatura & Oratoria</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../mrs/mrs.css">
+    <link rel="stylesheet" href="mrs.css">
 </head>
 <body>
+
     <header class="main-header">
         <div class="header-content">
-            <div class="logo-container"><a href="../index.html"><img src="../imagenes/logo.avif" alt="Logo" class="site-logo"></a></div>
-            <div class="title-container"><h1>Instituto de Inteligencias Múltiples</h1></div>
+            <div class="logo-container">
+                <a href="../index.html">
+                    <img src="../imagenes/logo.avif" alt="Logo Instituto" class="site-logo">
+                </a>
+            </div>
+            <div class="title-container">
+                <h1>Instituto de Inteligencias Múltiples</h1>
+            </div>
             <div class="menu-container">
                 <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-                <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
+                <label for="menu-toggle" class="menu-button">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
                 <nav class="dropdown-menu">
                     <ul>
                         <li><a href="../index.html#sobre-mi">Quiénes Somos</a></li>
@@ -28,27 +37,228 @@
             </div>
         </div>
     </header>
+    
     <div class="header-spacing"></div>
 
     <section class="landing-hero">
-        <h2>La Librería de Mr S: Oratoria Avanzada</h2>
-        <p>Aprende el arte de la oratoria, domina la comunicación asertiva y estructura discursos memorables para convencer a cualquier público.</p>
-    </section>
-
-    <main class="landing-container">
-        <div class="course-showcase">
-            <img src="curso-oratoria.jpg" alt="Curso Oratoria de Impacto" class="showcase-img">
-            <div class="showcase-details">
-                <h3>Curso Maestro: Técnicas de Oratoria y Control Escénico</h3>
-                <p>Destruye el miedo a hablar en público. Control de lenguaje corporal, entonación y modulación de la voz profesional.</p>
-                <span class="price">$45.00 USD</span>
-                <a href="#" class="btn-buy">Inscribirse al Curso</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+            <span class="hero-badge"><i class="fa-solid fa-book-open"></i> Letras con Propósito</span>
+            <h2>La Librería de Mr S: Donde la Palabra se Convierte en Poder</h2>
+            <p>Descubre historias que desafían la realidad, domina el arte de la elocuencia y despierta al orador estratégico que llevas dentro.</p>
+            <div class="hero-actions">
+                <a href="#cuentos" class="btn-hero btn-secondary"><i class="fa-solid fa-feather"></i> Leer Cuentos</a>
+                <a href="#podcast" class="btn-hero btn-secondary"><i class="fa-solid fa-podcast"></i> Escuchar Podcast</a>
+                <a href="#academia" class="btn-hero btn-primary"><i class="fa-solid fa-graduation-cap"></i> Explorar Cursos</a>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section id="cuentos" class="section-container">
+        <div class="section-header">
+            <h3 class="section-title">Últimos Cuentos Destacados</h3>
+            <p class="section-subtitle">Ficciones cortas y ensayos para leer un sábado por la tarde.</p>
+        </div>
+        
+        <div class="literary-grid">
+            <article class="story-card">
+                <div class="story-img-placeholder">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <span class="story-category">Ficción Filosófica</span>
+                        <span class="story-time"><i class="fa-regular fa-clock"></i> 5 min lectura</span>
+                    </div>
+                    <h4>El Relojero de las Almas Olvidadas</h4>
+                    <p>Un hombre en los suburbios descubre un engranaje capaz de detener el remordimiento humano, pero el costo altera su propia memoria.</p>
+                    <a href="#" class="story-link">Comenzar lectura <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="story-card">
+                <div class="story-img-placeholder" style="background: linear-gradient(135deg, #4a1510, #111);">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div class="story-content">
+                    <div class="story-meta">
+                        <span class="story-category">Distopía Psicológica</span>
+                        <span class="story-time"><i class="fa-regular fa-clock"></i> 8 min lectura</span>
+                    </div>
+                    <h4>El Eco del Silencio en la Academia</h4>
+                    <p>En un mundo donde la retórica está prohibida por decreto gubernamental, un viejo profesor organiza debates clandestinos en el subsuelo.</p>
+                    <a href="#" class="story-link">Comenzar lectura <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="podcast" class="section-container podcast-section">
+        <div class="podcast-wrapper">
+            <div class="podcast-info">
+                <span class="podcast-badge"><i class="fa-solid fa-radio"></i> Cita con la Literatura</span>
+                <h3>Tienes una cita con las ideas todos los sábados</h3>
+                <p>Análisis literarios profundos, debates sobre la psique humana y técnicas narrativas explicadas sin tecnicismos complejos. Disponible en las principales plataformas de audio.</p>
+                <div class="podcast-platforms">
+                    <a href="https://open.spotify.com/show/4cIQG1Koq3U0ldyMTobAiS" target="_blank" class="platform-btn"><i class="fa-brands fa-spotify"></i> Spotify</a>
+                    <a href="https://podcasts.apple.com/us/podcast/la-librer%C3%ADa-de-mr-s/id1601502657" target="_blank" class="platform-btn"><i class="fa-solid fa-podcast"></i> Apple Podcasts</a>
+                </div>
+            </div>
+            <div class="podcast-media">
+                <div class="spotify-iframe-placeholder">
+                    <i class="fa-brands fa-spotify spotify-icon"></i>
+                    <p>Reproductor de Spotify incrustado</p>
+                    <span>(Reemplaza este bloque por tu etiqueta iframe de Spotify)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="academia" class="section-container academy-section">
+        <div class="section-header">
+            <h3 class="section-title">Academia de Expresión Estratégica</h3>
+            <p class="section-subtitle">Formación premium para perfeccionar tus habilidades blandas y de comunicación avanzada.</p>
+        </div>
+
+        <div class="academy-grid">
+            <div class="course-card-premium">
+                <div class="course-badge gold">Disponible</div>
+                <div class="course-card-hero">
+                    <img src="../imagenes/mrs-landing.jpg" alt="Oratoria de Impacto" class="course-hero-img">
+                </div>
+                <div class="course-premium-body">
+                    <span class="course-level">Nivel: Avanzado</span>
+                    <h4>Técnicas de Oratoria y Control Escénico</h4>
+                    <p>Destruye el miedo a hablar en público. Aprende el control del lenguaje no verbal, modulación tonal y la arquitectura del discurso persuasivo.</p>
+                    <div class="course-footer">
+                        <span class="course-price">$45.00 USD</span>
+                        <a href="#" class="btn-enroll">Inscribirse <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card-premium">
+                <div class="course-badge gold">Disponible</div>
+                <div class="course-card-hero">
+                    <div class="course-placeholder-img"><i class="fa-solid fa-feather-pointed"></i></div>
+                </div>
+                <div class="course-premium-body">
+                    <span class="course-level">Nivel: Intermedio</span>
+                    <h4>Arquitectura Narrativa y Creación de Mundos</h4>
+                    <p>Descubre cómo estructurar tramas sólidas, diseñar arquetipos de personajes inolvidables y dominar la tensión en la narrativa corta.</p>
+                    <div class="course-footer">
+                        <span class="course-price">$39.00 USD</span>
+                        <a href="#" class="btn-enroll">Inscribirse <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card-premium">
+                <div class="course-badge gray">Próximamente</div>
+                <div class="course-card-hero">
+                    <div class="course-placeholder-img" style="background: #222;"><i class="fa-solid fa-brain"></i></div>
+                </div>
+                <div class="course-premium-body">
+                    <span class="course-level">Nivel: Introductorio</span>
+                    <h4>Sinergia de las Inteligencias Múltiples</h4>
+                    <p>Cómo explotar tus distintas capacidades cognitivas y creativas de manera organizada para aplicarlas a proyectos y negocios digitales.</p>
+                    <div class="course-footer">
+                        <span class="course-price">Por definir</span>
+                        <a href="#" class="btn-enroll disabled">Notificarme</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card-premium">
+                <div class="course-badge gray">Próximamente</div>
+                <div class="course-card-hero">
+                    <div class="course-placeholder-img" style="background: #222;"><i class="fa-solid fa-magnifying-glass"></i></div>
+                </div>
+                <div class="course-premium-body">
+                    <span class="course-level">Nivel: Avanzado</span>
+                    <h4>Metodología de Investigación y Ensayística</h4>
+                    <p>Técnicas avanzadas de recopilación documental, curación de datos bibliográficos y redacción académica de alto impacto.</p>
+                    <div class="course-footer">
+                        <span class="course-price">Por definir</span>
+                        <a href="#" class="btn-enroll disabled">Notificarme</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card-premium">
+                <div class="course-badge gray">Próximamente</div>
+                <div class="course-card-hero">
+                    <div class="course-placeholder-img" style="background: #222;"><i class="fa-solid fa-microphone-lines"></i></div>
+                </div>
+                <div class="course-premium-body">
+                    <span class="course-level">Nivel: Intermedio</span>
+                    <h4>El Arte del Casting y Locución en Esports</h4>
+                    <p>Desarrolla la velocidad mental, dicción extrema y el manejo de la adrenalina necesarios para narrar partidas competitivas a nivel profesional.</p>
+                    <div class="course-footer">
+                        <span class="course-price">Por definir</span>
+                        <a href="#" class="btn-enroll disabled">Notificarme</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="newsletter-card">
+            <h4>Únete a la Bitácora de Mr S</h4>
+            <p>Cada semana envío un análisis literario privado junto con técnicas de comunicación exclusivas directamente a tu bandeja de entrada. Sin spam.</p>
+            <form class="newsletter-form" onsubmit="return false;">
+                <input type="email" placeholder="Ingresa tu correo electrónico principal" required class="newsletter-input">
+                <button type="submit" class="newsletter-submit">Suscribirme Ahora</button>
+            </form>
+            <span class="newsletter-perk"><i class="fa-solid fa-shield-halved"></i> Privacidad garantizada. Desasóciate cuando quieras.</span>
+        </div>
+    </section>
+
+    <section class="support-section">
+        <div class="support-content">
+            <h3>¿Te apasiona este proyecto independiente?</h3>
+            <p>El Instituto de Inteligencias Múltibles y La Librería de Mr S subsisten gracias al apoyo directo de su comunidad. Si encuentras valor en mis historias, podcasts o consultorías, considera respaldar el trabajo creativo con una microdonación voluntaria.</p>
+            <div class="support-buttons">
+                <a href="#" class="btn-support paypal"><i class="fa-brands fa-paypal"></i> PayPal</a>
+                <a href="#" class="btn-support kofi"><i class="fa-solid fa-cup-straw-strawberry"></i> Ko-fi</a>
+                <a href="#" class="btn-support patreon"><i class="fa-brands fa-patreon"></i> Patreon</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-cta">
+        <div class="community-inner">
+            <h3>Forma parte activa del Instituto</h3>
+            <p>No seas solo un espectador. Envía tus comentarios sobre las historias, debate en nuestros foros y conecta con otros perfiles multidisciplinarios en este gran ecosistema.</p>
+        </div>
+    </section>
 
     <footer class="main-footer">
         <p class="footer-phrase">"El conocimiento es de todos y para todos" N.R.S.L.</p>
+        
+        <div class="footer-links-container">
+            <div class="footer-column">
+                <h5>Ecosistema</h5>
+                <a href="../index.html">Página Principal</a>
+                <a href="../index.html#sobre-mi">Quiénes Somos</a>
+            </div>
+            <div class="footer-column">
+                <h5>Facultades</h5>
+                <a href="../gasper/gasper.html">Ciencia y Tecnología</a>
+                <a href="../tim/tim.html">Música</a>
+                <a href="../principe/principe.html">Arte</a>
+                <a href="../monche/monche.html">E&Sport</a>
+            </div>
+            <div class="footer-column">
+                <h5>Plataformas Externas</h5>
+                <a href="https://www.instagram.com/nino_raul_/" target="_blank">Instagram Personal</a>
+                <a href="https://open.spotify.com/intl-es/artist/2HaOXXmyrNGJ5S2N7F8yUP" target="_blank">Canal de Spotify</a>
+            </div>
+        </div>
+
+        <p class="footer-copy">© 2026 Instituto de Inteligencias Múltiples. Todos los derechos reservados.</p>
     </footer>
+
 </body>
 </html>
