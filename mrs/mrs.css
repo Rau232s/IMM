@@ -1,43 +1,52 @@
 /* ==========================================================================
-   CONFIGURACIÓN INDEPENDIENTE - LA LIBRERÍA DE MR S
+   CONFIGURACIÓN INDEPENDIENTE - LA LIBRERÍA DE MR S (COMPATIBLE CON GITHUB)
    ========================================================================== */
 
+/* Importación segura con ruta relativa en minúsculas */
 @import url('../styles.css');
 
 :root {
-    --page-color: #c0392b;          /* Rojo principal */
-    --page-color-dark: #962d22;     /* Rojo oscuro hover */
-    --bg-dark-academic: #121212;    /* Fondo oscuro premium */
-    --card-bg-dark: #1e1e1e;        /* Tarjetas oscuras */
-    --text-muted-light: #b3b3b3;    /* Textos secundarios */
-    --gold-accent: #f39c12;         /* Dorado para badges */
+    --page-color: #c0392b;          /* Rojo principal Mr S */
+    --page-color-dark: #962d22;     /* Rojo oscuro para estados Hover */
+    --bg-dark-academic: #121212;    /* Fondo premium */
+    --card-bg-dark: #1e1e1e;        /* Fondos de tarjetas */
+    --text-muted-light: #b3b3b3;    /* Textos secundarios legibles */
+    --gold-accent: #f39c12;         /* Detalles dorados académicos */
 }
 
-/* Reescritura del cuerpo para estética premium/académica oscura */
+/* Forzar reset visual oscuro premium independiente del index global */
 body {
-    background-color: #0b0b0b;
-    color: #f5f5f5;
+    background-color: #0b0b0b !important;
+    color: #f5f5f5 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Mantenemos el borde identitario del header */
+/* Preservación de la identidad visual del Header */
 .main-header {
-    border-bottom: 4px solid var(--page-color);
+    border-bottom: 4px solid var(--page-color) !important;
+    background-color: rgba(11, 11, 11, 0.95) !important;
+}
+
+/* Contenedor de seguridad para evitar saltos bruscos por cabecera sticky/fixed */
+.header-spacing {
+    height: 80px;
+    background-color: #0b0b0b;
 }
 
 /* ==========================================================================
-   HERO SECTION (Inspirado en MasterClass)
+   HERO SECTION (Estética premium inspirada en MasterClass)
    ========================================================================== */
 .landing-hero {
     position: relative;
-    min-height: 70vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 20px;
-    background: #1a0806; /* Tinte sutil rojizo de fondo */
-    background-size: cover;
-    background-position: center;
+    padding: 60px 20px;
+    background: #1a0806; 
     overflow: hidden;
 }
 
@@ -47,7 +56,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(11,11,11,0.5) 0%, rgba(11,11,11,1) 100%);
+    background: linear-gradient(to bottom, rgba(11,11,11,0.4) 0%, rgba(11,11,11,1) 100%);
     z-index: 1;
 }
 
@@ -60,7 +69,7 @@ body {
 .hero-badge {
     background: rgba(192, 57, 43, 0.2);
     border: 1px solid var(--page-color);
-    color: #f39c12;
+    color: var(--gold-accent);
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -72,21 +81,21 @@ body {
 }
 
 .landing-hero h2 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     color: #ffffff;
     line-height: 1.2;
     margin-bottom: 20px;
     font-weight: 800;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .landing-hero p {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: var(--text-muted-light);
     margin-bottom: 35px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
 .hero-actions {
@@ -120,23 +129,25 @@ body {
 }
 
 .btn-hero.btn-secondary {
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.06);
     color: #ffffff;
     border: 1px solid rgba(255,255,255,0.15);
 }
 
 .btn-hero.btn-secondary:hover {
-    background-color: rgba(255,255,255,0.18);
+    background-color: rgba(255,255,255,0.15);
     border-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   ESTILOS DE SECCIONES (Estructura Común Reutilizable)
+   ESTILOS DE CONTENEDORES GLOBALES
    ========================================================================== */
 .section-container {
     max-width: 1200px;
     margin: 80px auto;
     padding: 0 25px;
+    box-sizing: border-box;
 }
 
 .section-header {
@@ -150,6 +161,7 @@ body {
     position: relative;
     display: inline-block;
     padding-bottom: 12px;
+    margin: 0;
 }
 
 .section-title::after {
@@ -170,7 +182,7 @@ body {
 }
 
 /* ==========================================================================
-   SECCIÓN CUENTOS (Estilo Medium / Premium)
+   SECCIÓN CUENTOS (Diseño Premium Estilo Medium)
    ========================================================================== */
 .literary-grid {
     display: grid;
@@ -183,25 +195,25 @@ body {
     border-radius: 12px;
     overflow: hidden;
     display: flex;
-    border: 1px solid #252525;
+    border: 1px solid #222;
     transition: all 0.3s ease;
 }
 
 .story-card:hover {
     transform: translateY(-4px);
     border-color: var(--page-color);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 .story-img-placeholder {
     width: 150px;
     min-width: 150px;
-    background: linear-gradient(135deg, var(--page-color-dark), #1c1c1c);
+    background: linear-gradient(135deg, var(--page-color-dark), #151515);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.4);
 }
 
 .story-content {
@@ -231,14 +243,14 @@ body {
 .story-content h4 {
     font-size: 1.35rem;
     color: #fff;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
 .story-content p {
     color: var(--text-muted-light);
     font-size: 0.95rem;
     line-height: 1.5;
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
 }
 
 .story-link {
@@ -253,17 +265,18 @@ body {
 }
 
 .story-link:hover {
-    color: #f39c12;
+    color: var(--gold-accent);
 }
 
 /* ==========================================================================
-   SECCIÓN PODCAST (Diseño Horizontal Equilibrado)
+   SECCIÓN PODCAST (Preparado para el Iframe de Spotify)
    ========================================================================== */
 .podcast-section {
     background-color: #111111;
-    padding: 60px 40px;
+    padding: 50px 40px;
     border-radius: 16px;
     border: 1px solid #222;
+    box-sizing: border-box;
 }
 
 .podcast-wrapper {
@@ -289,6 +302,7 @@ body {
 
 .podcast-info p {
     color: var(--text-muted-light);
+    line-height: 1.6;
     margin-bottom: 30px;
 }
 
@@ -328,11 +342,11 @@ body {
 }
 
 /* ==========================================================================
-   ACADEMIA (Tarjetas de Cursos Estilo Coursera Premium)
+   ACADEMIA (Diseño de Tarjetas Premium Estilo Coursera)
    ========================================================================== */
 .academy-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -340,7 +354,7 @@ body {
     background: var(--card-bg-dark);
     border-radius: 14px;
     overflow: hidden;
-    border: 1px solid #252525;
+    border: 1px solid #222;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -364,6 +378,7 @@ body {
 .course-card-hero {
     height: 180px;
     width: 100%;
+    background-color: #151515;
 }
 
 .course-hero-img {
@@ -380,7 +395,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.15);
 }
 
 .course-premium-body {
@@ -399,16 +414,16 @@ body {
 }
 
 .course-premium-body h4 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #fff;
-    margin-bottom: 12px;
+    margin: 0 0 12px 0;
 }
 
 .course-premium-body p {
     color: var(--text-muted-light);
     font-size: 0.9rem;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
 }
 
 .course-footer {
@@ -450,26 +465,27 @@ body {
 }
 
 /* ==========================================================================
-   SECCIONES ADICIONALES (Newsletter, Support & Comunidad)
+   FORMULARIOS, DONACIONES Y COMUNIDAD
    ========================================================================== */
 
-/* Newsletter */
+/* Captación de Leads */
 .newsletter-section {
     max-width: 850px;
     margin: 80px auto;
     padding: 0 25px;
+    box-sizing: border-box;
 }
 
 .newsletter-card {
     background: linear-gradient(135deg, #181313 0%, #1a0a09 100%);
-    border: 1px solid rgba(192, 57, 43, 0.3);
+    border: 1px solid rgba(192, 57, 43, 0.2);
     padding: 40px;
     border-radius: 16px;
     text-align: center;
 }
 
-.newsletter-card h4 { font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
-.newsletter-card p { color: var(--text-muted-light); margin-bottom: 25px; font-size: 0.95rem; }
+.newsletter-card h4 { font-size: 1.8rem; margin: 0 0 10px 0; color: #fff; }
+.newsletter-card p { color: var(--text-muted-light); margin: 0 0 25px 0; font-size: 0.95rem; }
 
 .newsletter-form {
     display: flex;
@@ -505,20 +521,20 @@ body {
 }
 
 .newsletter-submit:hover { background: var(--page-color-dark); }
-.newsletter-perk { font-size: 0.75rem; color: #666; display: block; }
+.newsletter-perk { font-size: 0.75rem; color: #555; display: block; }
 
-/* Support Section */
+/* Microdonaciones */
 .support-section {
     background: #0f0f0f;
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
     padding: 60px 20px;
     text-align: center;
 }
 
 .support-content { max-width: 750px; margin: 0 auto; }
-.support-content h3 { font-size: 1.8rem; color: #fff; margin-bottom: 15px; }
-.support-content p { color: var(--text-muted-light); margin-bottom: 30px; font-size: 0.95rem; }
+.support-content h3 { font-size: 1.8rem; color: #fff; margin: 0 0 15px 0; }
+.support-content p { color: var(--text-muted-light); margin: 0 0 30px 0; font-size: 0.95rem; }
 
 .support-buttons {
     display: flex;
@@ -545,38 +561,38 @@ body {
 /* Comunidad */
 .community-cta {
     text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(to right, #0b0b0b, #181313, #0b0b0b);
+    padding: 60px 20px;
 }
 
-.community-inner h3 { font-size: 1.8rem; color: #fff; margin-bottom: 10px; }
-.community-inner p { color: var(--text-muted-light); max-width: 600px; margin: 0 auto; }
+.community-inner h3 { font-size: 1.8rem; color: #fff; margin: 0 0 10px 0; }
+.community-inner p { color: var(--text-muted-light); max-width: 600px; margin: 0 auto; line-height: 1.5; }
 
 /* ==========================================================================
-   FOOTER ROBUSTO Y ACADÉMICO
+   PIE DE PÁGINA PROFESIONAL MULTICOLUMNA
    ========================================================================== */
 .footer-links-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 40px auto 30px auto;
-    border-top: 1px solid #222;
-    padding-top: 30px;
+    border-top: 1px solid #1a1a1a;
+    padding: 40px 25px 0 25px;
     text-align: left;
+    box-sizing: border-box;
 }
 
 .footer-column h5 {
     color: var(--page-color);
     font-size: 0.95rem;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
     letter-spacing: 0.5px;
 }
 
 .footer-column a {
     display: block;
-    color: #888;
+    color: #777;
     text-decoration: none;
     font-size: 0.85rem;
     margin-bottom: 10px;
@@ -587,15 +603,24 @@ body {
     color: #fff;
 }
 
+.footer-copy {
+    color: #444 !important;
+    font-size: 0.8rem;
+    margin-top: 30px;
+}
+
 /* ==========================================================================
-   RESPONSIVIDAD Y ADAPTACIÓN MÓVIL EXTREMA
+   MEDIA QUERIES (Responsividad fluida para móviles y tablets)
    ========================================================================== */
+@media (max-width: 992px) {
+    .podcast-wrapper { grid-template-columns: 1fr; gap: 30px; }
+}
+
 @media (max-width: 768px) {
     .landing-hero h2 { font-size: 2.2rem; }
     .literary-grid { grid-template-columns: 1fr; }
     .story-card { flex-direction: column; }
-    .story-img-placeholder { width: 100%; height: 120px; }
-    .podcast-wrapper { grid-template-columns: 1fr; gap: 30px; }
+    .story-img-placeholder { width: 100%; height: 140px; }
     .newsletter-form { flex-direction: column; }
     .newsletter-submit { padding: 14px; }
     .footer-links-container { text-align: center; }
