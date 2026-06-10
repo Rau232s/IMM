@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At The Roof - Nino Raúl</title>
+    <link rel="stylesheet" href="../roof/roof.css">
+</head>
+<body class="page-fade-init">
+
+    <div class="ambient-glow"></div>
+
+    <header class="header-album">
+    <a href="../tim.html" class="brand-back" onclick="fadeOutTo(event, this.href)">NINO RAUL</a>
+    </header>
+
+    <main class="album-container">
+        
+        <section class="gallery-wrapper">
+            <div class="slider-container" id="albumSlider">
+                <button class="nav-arrow prev-btn" onclick="changeSlide(-1); event.stopPropagation();">⟵</button>
+                <button class="nav-arrow next-btn" onclick="changeSlide(1); event.stopPropagation();">⟶</button>
+                
+                <div class="slider-track">
+                    <img src="../../imagenes/ar1.jpg" alt="At The Roof Cover" class="slide active" onclick="toggleLightbox(this)">
+                    <img src="../../imagenes/ar2.jpg" alt="At The Roof Arte 2" class="slide" onclick="toggleLightbox(this)">
+                    <img src="../../imagenes/ar3.jpg" alt="At The Roof Arte 3" class="slide" onclick="toggleLightbox(this)">
+                </div>
+
+                <div class="slide-indicator">1 / 3</div>
+            </div>
+        </section>
+
+        <section class="content-wrapper">
+            
+            <div class="streaming-platforms">
+                <a href="#" target="_blank" class="stream-btn spotify">
+                    <span class="btn-icon">➔</span> Spotify
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLqxfeoY7Uzi2-GDGCKgDwUn_nZx0otUeA" target="_blank" class="stream-btn youtube">
+                    <span class="btn-icon">➔</span> YouTube Music
+                </a>
+                <a href="#" target="_blank" class="stream-btn apple">
+                    <span class="btn-icon">➔</span> Apple Music
+                </a>
+            </div>
+
+            <article class="album-description">
+                <h1 class="album-title">At The Roof</h1>
+                <p class="subtitle-indigenous">12 Canciones / Covers y Autoría Propia</p>
+                
+                <div class="text-block">
+                    <p>Lanzado en junio de 2020, <strong>At The Roof</strong> representa mi primer gran trabajo musical. Este álbum está compuesto por 12 canciones, divididas en un equilibrio íntimo: 6 temas de autoría propia y 6 covers interpretados desde el alma. Cada una de las piezas cuenta con un videoclip pensado, grabado y dirigido íntegramente por mí.</p>
+                    
+                    <p>Este proyecto nació en medio de la cuarentena, buscando refugio en el arte. Es un testimonio de resiliencia y creatividad en tiempos de aislamiento, donde la música se convirtió en la ventana hacia el exterior.</p>
+                    
+                    <p class="author-quote">“Encontré un lugar muy especial en donde puedo desahogarme y ser yo mismo. Quise cantar mis canciones y aquellas que otros artistas han escrito que me llegan al corazón. Así nació 'At The Roof', con letras que me llenan y representan todo lo que pienso y lo que quiero decir.” <span class="quote-signature">— Nino Raúl</span></p>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <script>
+        // ---------------------------------------------------
+        // SISTEMA DE DESVANECIMIENTO (FADE IN / FADE OUT)
+        // ---------------------------------------------------
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fade In al cargar la página
+            setTimeout(() => {
+                document.body.classList.remove("page-fade-init");
+            }, 50);
+        });
+
+        // Función para salir con Fade Out antes de cambiar de página
+        function fadeOutTo(event, url) {
+            event.preventDefault(); // Evita que salte de golpe
+            document.body.classList.add("page-fade-out"); // Oscurece la pantalla
+            setTimeout(() => {
+                window.location.href = url; // Cambia de página una vez en negro
+            }, 600); // 600ms sincronizado con el CSS
+        }
+
+        // ---------------------------------------------------
+        // CONTROL DE GALERÍA Y LIGHTBOX
+        // ---------------------------------------------------
+        let currentIdx = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicator = document.querySelector('.slide-indicator');
+
+        function updateSlider() {
+            slides.forEach((slide, idx) => {
+                slide.classList.remove('active');
+                if(idx === currentIdx) slide.classList.add('active');
+            });
+            indicator.textContent = `${currentIdx + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentIdx += direction;
+            if (currentIdx >= slides.length) currentIdx = 0;
+            if (currentIdx < 0) currentIdx = slides.length - 1;
+            updateSlider();
+        }
+
+        function toggleLightbox(element) {
+            const container = document.getElementById('albumSlider');
+            const header = document.querySelector('.header-album');
+            
+            container.classList.toggle('lightbox-mode');
+            
+            if(container.classList.contains('lightbox-mode')) {
+                header.style.opacity = '0';
+                header.style.pointerEvents = 'none';
+            } else {
+                header.style.opacity = '1';
+                header.style.pointerEvents = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>

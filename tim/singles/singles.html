@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINGLES | NINO RAUL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="singles.css">
+</head>
+<body class="page-fade-init">
+    
+    <div class="bg-singles"></div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../tim.html" class="header-title no-underline" onclick="fadeOutAndRedirect(event, this.href)">NINO RAUL</a>
+        </div>
+    </header>
+
+    <main class="singles-container">
+        
+        <section class="singles-intro">
+            <h1 class="singles-title">Singles</h1>
+            <p class="singles-description">
+                Lanzamientos como <em>Guerra Mágica</em> (publicada en Wizard Rock), <em>Belén</em> (compuesta en honor a su hermana menor), <em>Parabas</em>, <em>Gran Ichini</em> y <em>Oh Navidad</em>, reflejan la profunda versatilidad y creatividad de sus composiciones, abarcando diferentes emociones, temáticas y géneros musicales.
+            </p>
+            
+            <div class="social-buttons">
+                <a href="#" target="_blank" class="btn-social btn-spotify">Spotify</a>
+                <a href="#" target="_blank" class="btn-social btn-youtube">YouTube</a>
+                <a href="#" target="_blank" class="btn-social btn-instagram">Instagram</a>
+            </div>
+        </section>
+
+        <section class="singles-grid">
+            <div class="single-card"><img src="../../imagenes/s1.jpg" alt="Single 1"></div>
+            <div class="single-card"><img src="../../imagenes/s2.jpg" alt="Single 2"></div>
+            <div class="single-card"><img src="../../imagenes/s3.jpg" alt="Single 3"></div>
+            <div class="single-card"><img src="../../imagenes/s4.jpg" alt="Single 4"></div>
+            <div class="single-card"><img src="../../imagenes/s5.jpg" alt="Single 5"></div>
+            <div class="single-card"><img src="../../imagenes/s6.jpg" alt="Single 6"></div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Quita el estado inicial para permitir el Fade In
+            document.body.classList.remove("page-fade-init");
+        });
+
+        // Efecto Fade Out al salir
+        function fadeOutAndRedirect(event, url) {
+            event.preventDefault(); 
+            document.body.classList.add("page-fade-out");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+@import url('../tim.css');
+/* DESBLOQUEAR EL SCROLL VERTICAL PARA LA TIENDA */
+html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    position: relative;
+}
+
+.bg-tienda {
+    position: absolute !important; /* Asegura que el fondo cubra todo el scroll */
+    min-height: 100vh;
+    height: 100%;
+}
+body {
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+body.page-fade-init,
+body.page-fade-out {
+    opacity: 0 !important;
+}
+
+.main-header {
+    height: 70px !important; /* Reducimos la altura del header */
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+.no-underline {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bg-tienda {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, rgba(30, 10, 10, 0.9), #000 80%);
+    animation: tricolorShift 18s infinite alternate ease-in-out;
+}
+
+@keyframes tricolorShift {
+    0% { background: radial-gradient(circle at 20% 80%, rgba(40, 10, 10, 0.8), #000 80%); }   
+    50% { background: radial-gradient(circle at 80% 20%, rgba(10, 40, 20, 0.8), #000 80%); }  
+    100% { background: radial-gradient(circle at 50% 50%, rgba(40, 30, 5, 0.8), #000 80%); }  
+}
+
+.store-container {
+    padding: 85px 3vw 20px 3vw; /* Ajustado para el nuevo header */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra todo verticalmente */
+}
+
+.store-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem; /* Un poco más pequeño */
+    color: var(--accent-color);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.store-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-muted);
+    margin-bottom: 25px; /* Menos margen inferior */
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* GRILLA DE PRODUCTOS: 4 COLUMNAS ESTRICTAS */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items uno al lado del otro */
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px; /* Ampliado para que los 4 entren perfectamente */
+}
+
+/* TARJETA 3D */
+.card {
+    background-color: transparent;
+    width: 100%;
+    height: 380px; /* Reducido de 440px a 380px para que encaje bien */
+    perspective: 1000px; 
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d; 
+}
+
+.card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* EFECTO CRISTAL (Glassmorphism) */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    border-radius: 16px;
+    
+    /* Configuración del Cristal */
+    background: rgba(255, 255, 255, 0.05); /* Fondo muy sutil */
+    backdrop-filter: blur(15px); /* El desenfoque del cristal */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Reflejo superior de luz */
+    border-left: 1px solid rgba(255, 255, 255, 0.3); /* Reflejo izquierdo de luz */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Sombra suave */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.product-img {
+    width: 100%;
+    height: 160px; /* Reducido para ahorrar espacio vertical */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.card-front h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem; /* Más pequeño */
+    color: var(--accent-color);
+}
+
+/* NUEVOS ESTILOS DE PRECIO */
+.price-wrapper {
+    text-align: left;
+    margin: 5px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.original-price {
+    font-size: 1.2rem; /* Más pequeño */
+    color: #ff6b6b; 
+    text-decoration: line-through; 
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discount-badge {
+    background-color: #ff3b3b;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.final-price {
+    font-size: 1rem; /* Más pequeño */
+    color: #4ade80; 
+    margin-top: 2px;
+}
+
+.final-price span {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+/* BOTONES */
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-detail {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-detail:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.btn-buy {
+    background-color: var(--accent-color);
+    color: #000;
+}
+.btn-buy:hover {
+    background-color: #e2e2e2;
+    transform: translateY(-2px);
+}
+
+/* REVERSO DE LA TARJETA */
+.card-back {
+    transform: rotateY(180deg); 
+}
+
+.card-back iframe {
+    border-radius: 10px;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.text-back {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.text-back p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.youtube-link {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.youtube-link:hover { text-decoration: underline; }
+
+.btn-back {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--accent-color);
+    width: 100%;
+}
+.btn-back:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+body.page-fade-out {
+    animation: salidaSuave 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+}
+
+@keyframes salidaSuave {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.02); }
+}
+/* =========================================
+   DISEÑO RESPONSIVE (MÓVILES Y TABLETS)
+   ========================================= */
+
+/* Para pantallas medianas (Tablets) */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila */
+        gap: 30px;
+    }
+}
+
+/* Para pantallas pequeñas (Celulares) */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* 1 sola tarjeta por fila (vertical) */
+        gap: 30px;
+        max-width: 400px; /* Evita que las tarjetas se estiren demasiado a lo ancho */
+        margin: 0 auto; /* Centra la columna */
+    }
+    
+    .store-container {
+        padding-top: 100px; /* Ajuste para que el título no quede tapado por el header */
+    }
+    
+    .store-title {
+        font-size: 1.8rem; /* Título un poco más pequeño en celular */
+    }
+}

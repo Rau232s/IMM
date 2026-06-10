@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renacer Moxeño - Nino Raúl</title>
+    <link rel="stylesheet" href="../renacer/renacer.css">
+</head>
+<body class="page-fade-init">
+    
+    <div class="ambient-glow"></div>
+
+    <header class="header-album">
+        <a href="../tim.html" class="brand-back" onclick="fadeOutTo(event, this.href)">NINO RAUL</a>
+    </header>
+
+    <main class="album-container">
+        
+        <section class="gallery-wrapper">
+            <div class="slider-container" id="albumSlider">
+                <button class="nav-arrow prev-btn" onclick="changeSlide(-1); event.stopPropagation();">⟵</button>
+                <button class="nav-arrow next-btn" onclick="changeSlide(1); event.stopPropagation();">⟶</button>
+                
+                <div class="slider-track">
+                    <img src="../../imagenes/rm1.jpg" alt="Renacer Moxeño Cover 1" class="slide active" onclick="toggleLightbox(this)">
+                    <img src="../../imagenes/rm2.jpg" alt="Renacer Moxeño Arte 2" class="slide" onclick="toggleLightbox(this)">
+                    <img src="../../imagenes/rm3.jpg" alt="Renacer Moxeño Arte 3" class="slide" onclick="toggleLightbox(this)">
+                </div>
+
+                <div class="slide-indicator">1 / 3</div>
+            </div>
+        </section>
+
+        <section class="content-wrapper">
+            
+            <div class="streaming-platforms">
+                <a href="https://open.spotify.com" target="_blank" class="stream-btn spotify">
+                    <span class="btn-icon">➔</span> Spotify
+                </a>
+                <a href="https://www.youtube.com/watch?v=pe0WkWofe04&list=PLqxfeoY7Uzi2sUhq21pkqV7OA2q2Sf3UL" target="_blank" class="stream-btn youtube">
+                    <span class="btn-icon">➔</span> YouTube Music
+                </a>
+                <a href="https://music.apple.com/us/album/renacer-moxe%C3%B1o-jiro-conevoco-cantar-antiguo/1794371049" target="_blank" class="stream-btn apple">
+                    <span class="btn-icon">➔</span> Apple Music
+                </a>
+            </div>
+
+            <article class="album-description">
+                <h1 class="album-title">Renacer Moxeño</h1>
+                <p class="subtitle-indigenous">Jiro Conevoco / Cantar Antiguo</p>
+                
+                <div class="text-block">
+                    <p>Bienvenido a este viaje. Lo que estás por escuchar no es solo música; es un puente vivo que une el corazón de la Amazonía beniana con el mundo contemporáneo. En estas 12 composiciones, fusioné melodías ancestrales transmitidas de generación en generación con armonías de piano, violines y guitarras modernas. Una de ellas, de hecho, late enteramente cantada en la lengua nativa Moxeña Trinitaria.</p>
+                    
+                    <p>Sentirás el pulso indomable de la chovena, el taquirari y la marcha fúnebre dialogando íntimamente con texturas autóctonas de la flauta tradicional, el bombo y los chononos. Cada acorde comparte una cosmovisión profunda: leyendas sagradas como la del <em>Ichini</em> (el jaguar), rituales míticos y la resistencia de un pueblo que protege con orgullo su herencia inmaterial a través de los siglos.</p>
+                    
+                    <p class="author-quote">“Para mí, Renacer Moxeño va más allá del arte. Es una iniciativa de respeto e interculturalidad pensada para reivindicar los derechos culturales de nuestros pueblos indígenas en Bolivia, transformando sus relatos en un patrimonio vivo que todos podamos abrazar.” <span class="quote-signature">— Nino Raúl</span></p>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <script>
+        // ---------------------------------------------------
+        // CONTROL DE GALERÍA Y LIGHTBOX
+        // ---------------------------------------------------
+        let currentIdx = 0;
+        const slides = document.querySelectorAll('.slide');
+        const indicator = document.querySelector('.slide-indicator');
+
+        function updateSlider() {
+            slides.forEach((slide, idx) => {
+                slide.classList.remove('active');
+                if(idx === currentIdx) slide.classList.add('active');
+            });
+            indicator.textContent = `${currentIdx + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            currentIdx += direction;
+            if (currentIdx >= slides.length) currentIdx = 0;
+            if (currentIdx < 0) currentIdx = slides.length - 1;
+            updateSlider();
+        }
+
+        function toggleLightbox(element) {
+            const container = document.getElementById('albumSlider');
+            const header = document.querySelector('.header-album');
+            
+            // Alterna la clase de pantalla completa en el contenedor cuadrado
+            container.classList.toggle('lightbox-mode');
+            
+            // Oculta o muestra el header de Nino Raúl según el estado
+            if(container.classList.contains('lightbox-mode')) {
+                header.style.opacity = '0';
+                header.style.pointerEvents = 'none';
+            } else {
+                header.style.opacity = '1';
+                header.style.pointerEvents = 'auto';
+            }
+        }
+
+        // ---------------------------------------------------
+        // SISTEMA DE DESVANECIMIENTO (FADE IN / FADE OUT)
+        // ---------------------------------------------------
+
+        // FADE IN: Aparecer suavemente al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.body.classList.remove("page-fade-init");
+            }, 50);
+        });
+
+        // FADE OUT: Desaparecer suavemente al regresar al inicio o cambiar de página
+        function fadeOutTo(event, url) {
+            event.preventDefault(); 
+            document.body.classList.add("page-fade-out"); 
+            setTimeout(() => {
+                window.location.href = url; 
+            }, 600); // 600ms hace match con la transición de tu archivo CSS
+        }
+    </script>
+</body>
+</html>

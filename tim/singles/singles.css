@@ -1,0 +1,170 @@
+@import url('../tim.css');
+
+/* DESBLOQUEAR EL SCROLL VERTICAL PARA ESTA PÁGINA */
+html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    position: relative;
+}
+/* ENTRADA Y SALIDA FADE */
+body {
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+body.page-fade-init,
+body.page-fade-out {
+    opacity: 0 !important;
+}
+
+body.page-fade-out {
+    animation: salidaSuave 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+}
+
+@keyframes salidaSuave {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.02); }
+}
+
+/* HEADER TRANSPARENTE */
+.main-header {
+    height: 70px !important;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+.no-underline {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* FONDO ANIMADO SUTIL (Tonos púrpuras y azulados) */
+.bg-singles {
+    position: absolute; /* Cambiamos fixed por absolute */
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%; /* Ahora cubre la altura total del contenido */
+    min-height: 100vh; /* Se asegura de cubrir la pantalla si hay poco texto */
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 10, 40, 0.9), #000 80%);
+    animation: bgSinglesShift 15s infinite alternate ease-in-out;
+}
+
+@keyframes bgSinglesShift {
+    0% { background: radial-gradient(circle at 20% 80%, rgba(30, 15, 50, 0.9), #000 80%); }   
+    100% { background: radial-gradient(circle at 80% 20%, rgba(15, 25, 45, 0.9), #000 80%); }  
+}
+
+/* CONTENEDOR PRINCIPAL */
+.singles-container {
+    padding: 100px 5vw 50px 5vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* SECCIÓN INTRODUCTORIA */
+.singles-intro {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.singles-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.singles-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* BOTONES DE PLATAFORMAS */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-social {
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+/* Colores de marca al hacer hover */
+.btn-spotify:hover { border-color: #1DB954; color: #1DB954; background: rgba(29, 185, 84, 0.1); }
+.btn-youtube:hover { border-color: #FF0000; color: #FF0000; background: rgba(255, 0, 0, 0.1); }
+.btn-instagram:hover { border-color: #E1306C; color: #E1306C; background: rgba(225, 48, 108, 0.1); }
+
+/* GRILLA DE PORTADAS DE SINGLES (3 columnas) */
+.singles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+.single-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.single-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.single-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Fuerza a que sean perfectamente cuadradas */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.4s ease;
+}
+
+.single-card:hover img {
+    filter: grayscale(0%);
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 768px) {
+    .singles-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+        gap: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .singles-grid {
+        grid-template-columns: 1fr; /* 1 columna en teléfonos pequeños */
+    }
+}

@@ -1,0 +1,339 @@
+/* ==========================================================================
+   1. PALETA PREMIUM: AMARILLO/NARANJA Y NEGRO (AT THE ROOF)
+   ========================================================================== */
+:root {
+    --bg-main: #0c0a08;            /* Negro profundo con levísimo tinte cálido */
+    --accent-glow: #332200;        /* Naranja/Amarillo oscuro para el ambiente dinámico */
+    --accent-color: #e69c24;       /* Amarillo Naranja premium para botones y detalles */
+    --text-primary: #ffffff;
+    --text-muted: #a1a1aa;         
+    --font-editorial: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SISTEMA DE DESVANECIMIENTO GLOBAL (FADE)
+   -------------------------------------------------------------------------- */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-editorial);
+    overflow: hidden; 
+    height: 100vh;
+    width: 100vw;
+    /* Transición fluida para que aparezca y desaparezca */
+    opacity: 1;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Estado de inicio (pantalla negra antes de aparecer) */
+body.page-fade-init {
+    opacity: 0 !important;
+}
+
+/* Estado de salida (pantalla negra al hacer clic en regresar) */
+body.page-fade-out {
+    opacity: 0 !important;
+}
+
+/* AMBIENT GLOW EN AMARILLO/NARANJA */
+.ambient-glow {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 200vh;
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(12,10,8,0) 80%);
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+/* ENCABEZADO FIJO DE RETORNO - CORREGIDO */
+.header-album {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 40%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    transition: opacity 0.4s ease;
+}
+
+.brand-back {
+
+    font-family: 'Cenzil', serif; /* AÑADIDO: Coherencia tipográfica */
+    /* Grosor normal (evita que se vea en negrita/bold) */
+    font-weight: 400;  
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.8rem; /* Tamaño coherente */
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.brand-back:hover {
+    color: var(--accent-color);
+}
+
+/* ... (Omitido: mantén tu .album-container, .gallery-wrapper etc igual) ... */
+
+/* LADO DERECHO: TEXTO - CORREGIDO */
+.album-title {
+    font-family: 'Cenzil', serif; /* AÑADIDO: Coherencia tipográfica */
+    font-size: 2rem;
+    font-weight: 400; /* PESO NORMAL */
+    letter-spacing: 1rem;
+    margin-bottom: 3px;
+    flex-shrink: 0;
+}
+
+.subtitle-indigenous {
+    font-family: 'Cenzil', serif; /* AÑADIDO: Coherencia tipográfica */
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 400; /* PESO NORMAL */
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   2. CONTENEDOR PRINCIPAL
+   ========================================================================== */
+.album-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    padding-top: 80px; 
+    align-items: center; 
+}
+
+/* --------------------------------------------------------------------------
+   LADO IZQUIERDO: CONTENEDOR DE LA IMAGEN (40%)
+   -------------------------------------------------------------------------- */
+.gallery-wrapper {
+    width: 40%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px; 
+    aspect-ratio: 1 / 1; 
+    background-color: #121412;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 10;
+}
+
+.slider-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    cursor: zoom-in;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+    padding: 20px;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+}
+
+.slider-container:hover .nav-arrow { opacity: 0.7; }
+.nav-arrow:hover { opacity: 1 !important; transform: translateY(-50%) scale(1.1); }
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.slide-indicator {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    z-index: 20;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   LADO DERECHO: TEXTO (60%)
+   -------------------------------------------------------------------------- */
+.content-wrapper {
+    width: 60%;
+    padding: 20px 5% 20px 40px; 
+    height: 480px; 
+    max-height: 480px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.streaming-platforms {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    flex-shrink: 0; 
+}
+
+.stream-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stream-btn:hover {
+    border-color: var(--accent-color);
+    background: rgba(230, 156, 36, 0.15); /* Naranja con transparencia */
+    transform: translateY(-2px);
+}
+
+.album-description {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;      
+    min-height: 0;     
+}
+
+.album-title {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 3px;
+    flex-shrink: 0;
+}
+
+.subtitle-indigenous {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.text-block {
+    overflow-y: auto;  
+    flex-grow: 1;      
+    padding-right: 15px;
+}
+
+.text-block p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.author-quote {
+    border-left: 2px solid var(--accent-color);
+    padding-left: 15px;
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--text-primary) !important;
+}
+
+.quote-signature {
+    display: block;
+    margin-top: 6px;
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+/* BARRA DE SCROLL AMARILLA/NARANJA */
+.text-block::-webkit-scrollbar {
+    width: 3px;
+}
+.text-block::-webkit-scrollbar-track {
+    background: transparent;
+}
+.text-block::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   3. LIGHTBOX Y RESPONSIVE
+   ========================================================================== */
+.slider-container.lightbox-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0;
+    z-index: 200;
+    background-color: #000000;
+    border: none;
+}
+.slider-container.lightbox-mode .slide { object-fit: contain; background-color: #000000; cursor: zoom-out; }
+
+@media (max-width: 968px) {
+    body { overflow-y: auto; height: auto; }
+    .album-container { flex-direction: column; height: auto; padding-top: 80px; align-items: center; }
+    .gallery-wrapper, .content-wrapper { width: 100%; height: auto; max-height: none; }
+    .gallery-wrapper { padding: 20px; justify-content: center; }
+    .content-wrapper { padding: 30px 20px 60px 20px; }
+    .text-block { overflow-y: visible; }
+}

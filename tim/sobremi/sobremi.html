@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOBRE MÍ | NINO RAUL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../sobremi/sobremi.css">
+</head>
+<body class="page-fade-init">
+    
+    <div class="bg-animado"></div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../tim.html" class="header-title no-underline" onclick="fadeOutAndRedirect(event, this.href)">NINO RAUL</a>
+        </div>
+    </header>
+
+    <main class="about-container">
+        <div class="gallery-wrapper">
+            <div class="gallery-track scroll-up" id="track-left"></div>
+        </div>
+
+        <section class="bio-content">
+            <h1>Sobre Mí</h1>
+            <p>
+                <strong>Nino Raúl Suárez Loras</strong> es un cantautor, productor musical, investigador cultural, director creativo y artista plástico nacido en Trinidad, Beni, Bolivia. Desde temprana edad desarrolló una profunda vocación por la música, participando en coros y orquestas estudiantiles, influenciado por el entorno cultural de su tierra y por la riqueza de las tradiciones amazónicas y moxeñas.
+            </p>
+            <p>
+                A los 15 años inició su formación académica en guitarra y piano en el Instituto de Formación Artística Edelmira Limpias, donde se graduó con honores. Su carrera como compositor comenzó a los 16 años y, desde entonces, ha orientado su trabajo artístico a la preservación, investigación y difusión del patrimonio cultural de los pueblos indígenas de Moxos y de las tradiciones del departamento del Beni.
+            </p>
+            <p>
+                En 2020 lanzó su primer álbum, <em>At the Roof</em>, seguido por <em>Canto Ancestral</em> en 2023, una producción inspirada en mitos, leyendas y relatos tradicionales del Beni. Posteriormente desarrolló el proyecto <em>El Renacer Moxeño: Jiro Conevoco (Cantar Antiguo)</em>, una obra de investigación musical dedicada a rescatar y preservar la memoria oral, los sonidos ancestrales y la identidad cultural moxeña para las nuevas generaciones.
+            </p>
+            <p>
+                Como intérprete y gestor cultural, ha representado al Beni en diversos escenarios nacionales junto al elenco Nino Raúl y Los Trinitarios, promoviendo la música, las costumbres y las tradiciones de los pueblos amazónicos bolivianos. Su trabajo se caracteriza por la fusión entre investigación histórica, tradición oral y creación musical contemporánea, convirtiéndose en una de las voces jóvenes más comprometidas con la preservación del patrimonio cultural del oriente boliviano.
+            </p>
+            <p>
+                Su trayectoria artística y aporte a la cultura han sido reconocidos con diversas distinciones, entre ellas el Reconocimiento al Mérito otorgado por la Casa de la Cultura del Beni y un Homenaje Camaral conferido por la Cámara de Senadores del Estado Plurinacional de Bolivia, en mérito a su contribución a la preservación, promoción y difusión de la cultura beniana y boliviana.
+            </p>
+            <p>
+                A través de su obra, Nino Raúl Suárez Loras continúa impulsando la valoración de la identidad amazónica y moxeña, utilizando la música como un puente entre la memoria ancestral y las nuevas generaciones.
+            </p>
+        </section>
+
+        <div class="gallery-wrapper">
+            <div class="gallery-track scroll-down" id="track-right"></div>
+        </div>
+    </main>
+
+    <script>
+    
+        // 1. Efecto Fade In al cargar (Quita el estado inicial si lo estás usando)
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.remove("page-fade-init");
+            
+            // Lógica de las tarjetas 3D que ya tenías
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseleave', () => {
+                    const cardInner = card.querySelector('.card-inner');
+                    if (cardInner.classList.contains('is-flipped')) {
+                        cardInner.classList.remove('is-flipped');
+                    }
+                });
+            });
+        });
+
+        // 2. Efecto Fade Out al salir
+        function fadeOutAndRedirect(event, url) {
+            // Evitamos que el enlace cambie de página instantáneamente
+            event.preventDefault(); 
+            
+            // Agregamos la clase que dispara la animación de Fade Out en CSS
+            document.body.classList.add("page-fade-out");
+            
+            // Esperamos 600 milisegundos (el tiempo de la animación) y luego cambiamos de página
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        }
+
+        // Función para girar la tarjeta
+        function flipCard(btn) {
+            const cardInner = btn.closest('.card-inner');
+            cardInner.classList.add('is-flipped');
+        }
+
+
+        // 3. Lógica de las galerías infinitas
+        const trackLeft = document.getElementById('track-left');
+        const trackRight = document.getElementById('track-right');
+
+        let imgsLeft = '';
+        let imgsRight = '';
+
+        // Cargamos las 20 imágenes con la ruta subiendo 2 niveles
+        for (let i = 1; i <= 20; i++) {
+            imgsLeft += `<img src="../../imagenes/sm${i}.jpg" alt="Galería ${i}">`;
+        }
+        for (let i = 1; i <= 20; i++) {
+            imgsRight += `<img src="../../imagenes/sm${i}.jpg" alt="Galería ${i}">`;
+        }
+
+        // DUPLICAMOS los bloques de fotos dentro del track.
+        // Esto asegura que al cargar esté lleno y el desplazamiento sea un bucle sin espacios vacíos.
+        trackLeft.innerHTML = imgsLeft + imgsLeft;
+        trackRight.innerHTML = imgsRight + imgsRight;
+    </script>
+</body>
+</html>

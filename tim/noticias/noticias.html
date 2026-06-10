@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTICIAS | NINO RAUL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="noticias.css">
+</head>
+<body class="page-fade-init">
+    
+    <div class="bg-noticias"></div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../tim.html" class="header-title no-underline" onclick="fadeOutAndRedirect(event, this.href)">NINO RAUL</a>
+        </div>
+    </header>
+
+    <main class="news-container">
+        <h1 class="news-title">Prensa y Noticias</h1>
+        <p class="news-subtitle">Artículos, entrevistas y publicaciones sobre mi trayectoria musical</p>
+
+        <div class="news-grid">
+            
+            <div class="news-card">
+                <h3>Nuti Jirucho Chanecuna le Canto a los Espíritus</h3>
+                <p class="news-source">Nino Raul Music (Blog)</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://nsuarezloras.wixsite.com/nino-raul-music-1/post/nuti-jirucho-chanecuna-le-canto-a-los-esp%C3%ADritus')">Leer Aquí</button>
+                    <a href="https://nsuarezloras.wixsite.com/nino-raul-music-1/post/nuti-jirucho-chanecuna-le-canto-a-los-esp%C3%ADritus" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Palabras del Presidente de la Casa de la Cultura</h3>
+                <p class="news-source">Sobre el álbum Canto Ancestral</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://nsuarezloras.wixsite.com/nino-raul-music-1/post/palabras-de-presidente-de-la-casa-de-la-cultura-sobre-el-%C3%A1lbum-canto-ancestral')">Leer Aquí</button>
+                    <a href="https://nsuarezloras.wixsite.com/nino-raul-music-1/post/palabras-de-presidente-de-la-casa-de-la-cultura-sobre-el-%C3%A1lbum-canto-ancestral" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Estreno del Álbum El Renacer Moxeño</h3>
+                <p class="news-source">Red Pat TV</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://www.redpat.tv/detalle/estreno-del-album-el-renacer-moxeno-de-nino-suarez-loras')">Leer Aquí</button>
+                    <a href="https://www.redpat.tv/detalle/estreno-del-album-el-renacer-moxeno-de-nino-suarez-loras" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Lanzamiento Álbum Musical que Preserva Tradiciones</h3>
+                <p class="news-source">RC Bolivia</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://rcbolivia.com/lanzamiento-de-el-renacer-moxeno-jiro-conevoco-cantar-antiguo-album-musical-que-preserva-y-celebra-las-ricas-tradiciones-orales-de-la-etnia-moxena/')">Leer Aquí</button>
+                    <a href="https://rcbolivia.com/lanzamiento-de-el-renacer-moxeno-jiro-conevoco-cantar-antiguo-album-musical-que-preserva-y-celebra-las-ricas-tradiciones-orales-de-la-etnia-moxena/" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Entrevista Exclusiva en PAT</h3>
+                <p class="news-source">Instagram / PAT Bolivia</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://www.instagram.com/patbolivia/p/C_COHkZi6OB/embed')">Leer Aquí</button>
+                    <a href="https://www.instagram.com/patbolivia/p/C_COHkZi6OB/?locale=bz-hans&hl=am-et" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Nota de Prensa: Renacer Moxeño</h3>
+                <p class="news-source">Fundación Cultural BCB</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://www.fundacionculturalbcb.gob.bo/notas-de-prensa-crc/2024/np-crc-010-2024.php')">Leer Aquí</button>
+                    <a href="https://www.fundacionculturalbcb.gob.bo/notas-de-prensa-crc/2024/np-crc-010-2024.php" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Estrenan álbum musical El Renacer Moxeño</h3>
+                <p class="news-source">Qamasa</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://qamasa.com/estrenan-album-musical-el-renacer-moxeno.html')">Leer Aquí</button>
+                    <a href="https://qamasa.com/estrenan-album-musical-el-renacer-moxeno.html" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <h3>Boletín Cultural 61 (Documento PDF)</h3>
+                <p class="news-source">Fundación Cultural BCB</p>
+                <div class="news-actions">
+                    <button class="btn btn-read" onclick="openModal('https://www.fundacionculturalbcb.gob.bo/documentos/boletin-cultural/2024/boletin_61_2024.pdf')">Leer Aquí</button>
+                    <a href="https://www.fundacionculturalbcb.gob.bo/documentos/boletin-cultural/2024/boletin_61_2024.pdf" target="_blank" class="btn btn-ext">Ir a la fuente</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="news-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">Cerrar ✕</button>
+            <iframe id="news-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.remove("page-fade-init");
+        });
+
+        function fadeOutAndRedirect(event, url) {
+            event.preventDefault();
+            document.body.classList.add("page-fade-out");
+            setTimeout(() => {
+                window.location.href = url;
+            }, 600);
+        }
+
+        // Lógica del Modal (Ventana Emergente)
+        function openModal(url) {
+            document.getElementById('news-iframe').src = url;
+            document.getElementById('news-modal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evita que la página de fondo se mueva
+        }
+
+        function closeModal() {
+            document.getElementById('news-iframe').src = '';
+            document.getElementById('news-modal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaura el movimiento de la página
+        }
+    </script>
+</body>
+</html>
