@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasper - Centro de Tesis e Investigación | IIM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../tesis/tesis.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container"><a href="../index.html"><img src="../imagenes/logo.avif" alt="Logo" class="site-logo"></a></div>
+            <div class="title-container"><h1>INSTITUTO DE INTELIGENCIAS MÚLTIPLES</h1></div>
+            <div class="menu-container">
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
+                <nav class="dropdown-menu">
+                    <ul>
+                        <li><a href="../index.html#sobre-mi">Quiénes Somos</a></li>
+                        <li><a href="../tesis/tesis.html">Ciencia y Tecnología</a></li>
+                        <li><a href="../tim/tim.html">Música</a></li>
+                        <li><a href="../principe/principe.html">Arte</a></li>
+                        <li><a href="../monche/monche.html">E&Sport</a></li>
+                        <li><a href="../mrs/mrs.html">Literatura y Oratoria</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="top-layout">
+        <div class="hero-left">
+            <h2>Centro de Tesis, Investigación<br>y Consultoría</h2>
+            <p>Impulsa tu desarrollo académico y profesional con rutas completas de investigación. Más que asesoría, integramos tecnología, IA y empleabilidad para garantizar tu éxito.</p>
+            <a href="https://wa.me/59165200690?text=Hola,%20quisiera%20solicitar%20un%20Diagnóstico%20Gratuito" target="_blank" class="btn-primary">Solicitar Diagnóstico Gratuito</a>
+        </div>
+        
+        <div class="services-right">
+            <div class="service-card" onclick="openModal('modal-tesis')">
+                <i class="fa-solid fa-book-open"></i>
+                <div>
+                    <h4>Tesis y Monografías</h4>
+                    <p>Desarrollo, estructura y tutoría para proyectos académicos de alto impacto.</p>
+                </div>
+            </div>
+            
+            <div class="service-card" onclick="openModal('modal-consultoria')">
+                <i class="fa-solid fa-building"></i>
+                <div>
+                    <h4>Consultoría Institucional</h4>
+                    <p>Asesoramiento estratégico para empresas, ONG y colegios.</p>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="openModal('modal-articulos')">
+                <i class="fa-solid fa-microscope"></i>
+                <div>
+                    <h4>Artículos Científicos</h4>
+                    <p>Redacción e investigación bajo normas APA y estándares internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+  
+
+    <section class="packages-section">
+        <h3 class="section-title">Nuestros Paquetes Académicos</h3>
+        <p class="section-subtitle">Soluciones integrales adaptadas a tus objetivos</p>
+        
+        <div class="packages-grid">
+            <div class="pack-card" onclick="openModal('modal-pack-basico')">
+                <div class="pack-header">Pack Académico Base</div>
+                <div class="pack-body">
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Plantillas de investigación</li>
+                        <li><i class="fa-solid fa-check"></i> Corrección APA básica</li>
+                    </ul>
+                    <button class="btn-outline">Ver Beneficios</button>
+                </div>
+            </div>
+            <div class="pack-card featured" onclick="openModal('modal-pack-desarrollo')">
+                <div class="pack-header">Pack Investigador</div>
+                <div class="pack-body">
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Desarrollo de Monografías</li>
+                        <li><i class="fa-solid fa-check"></i> Presentaciones (PPT) alto impacto</li>
+                    </ul>
+                    <button class="btn-outline">Ver Beneficios</button>
+                </div>
+            </div>
+            <div class="pack-card" onclick="openModal('modal-pack-elite')">
+                <div class="pack-header">Pack Élite VIP</div>
+                <div class="pack-body">
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Desarrollo integral de Tesis</li>
+                        <li><i class="fa-solid fa-check"></i> Preparación de defensa</li>
+                    </ul>
+                    <button class="btn-outline">Ver Beneficios</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses-section">
+        <h3 class="section-title" style="color: #2b5b84;">Cursos Cortos y Módulos Completos</h3>
+        <p class="section-subtitle" style="color: #555;">Modalidad Online y En Vivo (3 veces por semana) • Pagos Mensuales</p>
+        
+        <div class="courses-grid">
+            
+            <div class="course-card">
+                <div class="course-badge">ONLINE</div>
+                <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=500&q=80" alt="Defensa de Tesis" class="course-img">
+                <div class="course-info">
+                    <h4>Oratoria y Defensa de Tesis</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 300</span>
+                        <span class="discount">-50%</span>
+                        <span class="new-price">Bs 150 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-defensa-online')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge live-badge">EN VIVO</div>
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80" alt="Defensa de Tesis en vivo" class="course-img">
+                <div class="course-info">
+                    <h4>Oratoria y Defensa de Tesis</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 450</span>
+                        <span class="discount">-33%</span>
+                        <span class="new-price">Bs 300 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-defensa-vivo')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge">ONLINE</div>
+                <img src="../imagenes/oratoria.jpg" alt="Hablar en publico" class="course-img">
+                <div class="course-info">
+                    <h4>Oratoria: Perder el Miedo</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 250</span>
+                        <span class="discount">-40%</span>
+                        <span class="new-price">Bs 150 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-publico-online')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge live-badge">EN VIVO</div>
+               <img src="https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Hablar en publico en vivo" class="course-img">
+                <div class="course-info">
+                    <h4>Oratoria: Perder el Miedo</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 350</span>
+                        <span class="discount">-28%</span>
+                        <span class="new-price">Bs 250 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-publico-vivo')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge">ONLINE</div>
+                <img src="https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Quimica" class="course-img">
+                <div class="course-info">
+                    <h4>Fundamentos de Química</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 200</span>
+                        <span class="discount">-40%</span>
+                        <span class="new-price">Bs 120 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-quimica-online')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge live-badge">EN VIVO</div>
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&q=80" alt="Quimica en vivo" class="course-img">
+                <div class="course-info">
+                    <h4>Química Aplicada e Industrial</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 300</span>
+                        <span class="discount">-33%</span>
+                        <span class="new-price">Bs 200 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-quimica-vivo')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge">ONLINE</div>
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&q=80" alt="Matematicas" class="course-img">
+                <div class="course-info">
+                    <h4>Matemática y Lógica</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 200</span>
+                        <span class="discount">-40%</span>
+                        <span class="new-price">Bs 120 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-mate-online')">Ver Temario</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="course-badge live-badge">EN VIVO</div>
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&q=80" alt="Matematicas en vivo" class="course-img">
+                <div class="course-info">
+                    <h4>Matemática y Razonamiento</h4>
+                    <div class="prices">
+                        <span class="old-price">Bs 300</span>
+                        <span class="discount">-33%</span>
+                        <span class="new-price">Bs 200 <small>/mes</small></span>
+                    </div>
+                    <button class="btn-course" onclick="openModal('modal-curso-mate-vivo')">Ver Temario</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="panoramic-section">
+    <div class="panoramic-card">
+        
+        <div class="panoramic-info">
+            <span class="academy-badge"><i class="fa-solid fa-graduation-cap"></i> Acompañamiento Avanzado</span>
+            <h2>Tesis y Monografías</h2>
+            <p class="main-description">
+                Convierte tus ideas en un trabajo académico sólido y bien estructurado. Recibe acompañamiento profesional en metodología, redacción, corrección y normas APA para avanzar con confianza hacia tu graduación.
+            </p>
+            
+            <ul class="academic-features-list">
+                <li><i class="fa-solid fa-check"></i> Asesoría personalizada y guía continua.</li>
+                <li><i class="fa-solid fa-check"></i> Corrección metodológica estructural.</li>
+                <li><i class="fa-solid fa-check"></i> Formateo estricto en Normas APA 7ª edición.</li>
+                <li><i class="fa-solid fa-check"></i> Redacción académica de alta fidelidad.</li>
+                <li><i class="fa-solid fa-check"></i> Revisión y control antiplagio.</li>
+                <li><i class="fa-solid fa-check"></i> Preparación estratégica para defensa final.</li>
+                <li><i class="fa-solid fa-check"></i> Seguimiento exhaustivo hasta la entrega final.</li>
+            </ul>
+
+            <div class="metrics-panel">
+                <div class="metric-item">
+                    <span class="metric-number">98%</span>
+                    <span class="metric-label">Tasa de Aprobación</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-number">+150</span>
+                    <span class="metric-label">Tesis Asesoradas</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-number">APA 7</span>
+                    <span class="metric-label">Precisión Estricta</span>
+                </div>
+            </div>
+
+            <div class="action-container">
+                <a href="#portafolio" class="btn-portfolio-action">
+                    Ver Portafolio de Proyectos <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="panoramic-viewer">
+            <h4 class="viewer-title"><i class="fa-solid fa-eye-slash"></i> Vista Previa Controlada de Documentos</h4>
+            
+            <div class="preview-docs-container">
+                
+    <div class="protected-doc-card">
+        <div class="doc-tab"><i class="fa-regular fa-file-pdf"></i> Ejemplo_Proyecto_01.pdf</div>
+        <div class="doc-page-simulator">
+            <div class="css-watermark">PROPIEDAD IIM</div>
+            
+            <img src="../imagenes/ejemplo-tesis1.png" alt="Vista previa Tesis 1" class="doc-preview-img">
+            
+            <div class="blurred-overlay-shield"></div>
+        </div>
+    </div>
+
+    <div class="protected-doc-card">
+        <div class="doc-tab"><i class="fa-regular fa-file-pdf"></i> Ejemplo_Proyecto_02.pdf</div>
+        <div class="doc-page-simulator">
+            <div class="css-watermark">PROPIEDAD IIM</div>
+            
+            <img src="../imagenes/ejemplo-tesis2.png" alt="Vista previa Tesis 2" class="doc-preview-img">
+            
+            <div class="blurred-overlay-shield"></div>
+            <span class="security-disclaimer"><i class="fa-solid fa-lock"></i> Documentación protegida. Descarga deshabilitada por derechos de autor.</span>
+        </div>
+
+    </div>
+</section>
+
+    <footer class="main-footer">
+        <p>"El conocimiento es de todos y para todos" - N.R.S.L.</p>
+    </footer>
+
+    <a href="https://wa.me/59165200690" target="_blank" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
+
+    <div id="modal-tesis" class="custom-modal">
+        <button class="close-btn" onclick="closeAllModals()">&times;</button>
+        <h3>Tesis y Monografías</h3>
+        <p>Acompañamiento desde la elección del tema hasta la revisión final. Incluye redacción científica, análisis de datos y formato APA.</p>
+        <div class="modal-examples">
+            <strong>Ejemplos de nuestro trabajo:</strong>
+            <ul>
+                <li>Tesis: "Impacto de la IA en la Educación Superior"</li>
+                <li>Monografía: "Optimización de procesos petroquímicos"</li>
+            </ul>
+        </div>
+        <a href="https://wa.me/59165200690?text=Hola,%20quiero%20cotizar%20ayuda%20con%20mi%20Tesis/Monografía" class="btn-wsp-modal"><i class="fa-brands fa-whatsapp"></i> Cotizar Servicio</a>
+    </div>
+
+    <div id="modal-curso-defensa-online" class="custom-modal">
+        <button class="close-btn" onclick="closeAllModals()">&times;</button>
+        <h3>Oratoria y Defensa de Tesis (Online)</h3>
+        <p>Aprende a tu propio ritmo a estructurar tu defensa frente a un tribunal.</p>
+        <div class="modal-examples">
+            <strong>Temario Detallado:</strong>
+            <ul>
+                <li>Módulo 1: Síntesis de la investigación para PPT.</li>
+                <li>Módulo 2: Dominio escénico y lenguaje no verbal.</li>
+                <li>Módulo 3: Estrategias para la ronda de preguntas.</li>
+            </ul>
+        </div>
+        <a href="https://wa.me/59165200690?text=Hola,%20quiero%20inscribirme%20al%20curso%20Online%20de%20Defensa%20de%20Tesis" class="btn-wsp-modal"><i class="fa-brands fa-whatsapp"></i> Inscribirse por Bs 150/mes</a>
+    </div>
+
+    <div id="modal-curso-defensa-vivo" class="custom-modal">
+        <button class="close-btn" onclick="closeAllModals()">&times;</button>
+        <h3>Oratoria y Defensa de Tesis (En Vivo)</h3>
+        <p>Prácticas reales frente a cámara. <strong>Contenido 100% adaptable a tu caso y carrera.</strong></p>
+        <div class="modal-examples">
+            <strong>Temario General:</strong>
+            <ul>
+                <li>Revisión de tu material de apoyo y corrección en vivo.</li>
+                <li>Simulación de defensa con retroalimentación instantánea.</li>
+                <li>Manejo de pánico escénico severo.</li>
+            </ul>
+            <p><em>*Horarios electivos y clases personalizadas.</em></p>
+        </div>
+        <a href="https://wa.me/59165200690?text=Hola,%20quiero%20inscribirme%20al%20curso%20En%20Vivo%20de%20Defensa%20de%20Tesis" class="btn-wsp-modal"><i class="fa-brands fa-whatsapp"></i> Inscribirse por Bs 300/mes</a>
+    </div>
+
+    <div id="modal-curso-publico-vivo" class="custom-modal">
+        <button class="close-btn" onclick="closeAllModals()">&times;</button>
+        <h3>Hablar en Público y Perder el Miedo (En Vivo)</h3>
+        <p>Clases interactivas 3 veces a la semana. Práctica intensiva de vocalización y expresión.</p>
+        <div class="modal-examples">
+            <strong>Temario:</strong>
+            <ul>
+                <li>Respiración diafragmática y modulación de voz.</li>
+                <li>Técnicas de improvisación y Storytelling.</li>
+                <li>Control de la ansiedad frente a grandes audiencias.</li>
+            </ul>
+            <p><em>*Horarios electivos de 7:00 pm a 10:00 pm (Lunes a Viernes).</em></p>
+        </div>
+        <a href="https://wa.me/59165200690?text=Hola,%20quiero%20inscribirme%20al%20curso%20En%20Vivo%20de%20Oratoria" class="btn-wsp-modal"><i class="fa-brands fa-whatsapp"></i> Inscribirse por Bs 250/mes</a>
+    </div>
+
+    <div id="modal-curso-quimica-vivo" class="custom-modal">
+        <button class="close-btn" onclick="closeAllModals()">&times;</button>
+        <h3>Química (En Vivo)</h3>
+        <p>Refuerzo académico y fundamentos industriales. Dinámico y con resolución de ejercicios en pizarra virtual.</p>
+        <div class="modal-examples">
+            <strong>Horarios y Detalles:</strong>
+            <ul>
+                <li>Resolución de dudas en tiempo real.</li>
+                <li>Temas desde estequiometría hasta química orgánica.</li>
+            </ul>
+            <p><em>*Horarios electivos de 2:00 pm a 10:00 pm (Lunes a Viernes).</em></p>
+        </div>
+        <a href="https://wa.me/59165200690?text=Hola,%20quiero%20inscribirme%20al%20curso%20En%20Vivo%20de%20Química" class="btn-wsp-modal"><i class="fa-brands fa-whatsapp"></i> Inscribirse por Bs 200/mes</a>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById('modal-overlay').classList.add('active');
+            
+            // Si el modal no existe en el HTML, mostramos uno genérico de ejemplo
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.add('active');
+            } else {
+                // Modal genérico para los que faltan declarar arriba por espacio
+                const generic = document.getElementById('modal-tesis');
+                generic.classList.add('active');
+            }
+        }
+
+        function closeAllModals() {
+            document.getElementById('modal-overlay').classList.remove('active');
+            const modals = document.querySelectorAll('.custom-modal');
+            modals.forEach(m => m.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+@import url('../styles.css');
+
+:root { 
+    --primary-blue: #23608b; /* Azul principal idéntico a la imagen */
+    --accent-gold: #f39c12; /* Línea dorada para contraste */
+    --text-dark: #2c3e50;
+    --bg-light: #f5f7fa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6;}
+
+
+/* HEADER INTEGRADO AL COLOR DE PÁGINA (Corregido) */
+.main-header { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px; /* Mantenemos la altura oficial de tu menú */
+    background-color: rgb(255, 255, 255) !important; /* Forzamos el color azul idéntico a la imagen */
+    border-bottom: 3px solid var(--primary-blue) !important; /* Línea azul inferior combinada */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+.main-header h1 { color: var(--primary-blue); font-size: 1.5rem;}
+.header-spacing { height: 0px; } /* Ya no es necesario si el top-layout se pega al header */
+
+/* =========================================
+   DISEÑO HERO + SERVICIOS (Izquierda y Derecha)
+   ========================================= */
+.top-layout {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--primary-blue);
+    padding: 130px 5vw;
+    color: #ffffff;
+    border-bottom: 4px solid var(--accent-gold);
+}
+
+.hero-left {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero-left h2 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
+.hero-left p { font-size: 1.1rem; margin-bottom: 30px; color: #e0e0e0; }
+
+.btn-primary {
+    align-self: flex-start;
+    background: #fff;
+    color: var(--primary-blue);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.btn-primary:hover { background: var(--accent-gold); color: #fff; transform: translateY(-2px);}
+
+.services-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Tarjetas de servicios como en la imagen */
+.service-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--primary-blue);
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-card:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+.service-card i { font-size: 2.5rem; color: var(--primary-blue); }
+.service-card h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--text-dark);}
+.service-card p { font-size: 0.9rem; color: #666;}
+
+/* =========================================
+   PAQUETES DE SERVICIO
+   ========================================= */
+.packages-section { padding: 60px 5vw; background: #fff; text-align: center; }
+.section-title { font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 5px; }
+.section-subtitle { color: #7f8c8d; margin-bottom: 40px; font-size: 1.1rem; }
+
+.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.pack-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+.pack-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--primary-blue);}
+.pack-card.featured { border: 2px solid var(--accent-gold); transform: scale(1.05); background: #fff;}
+.pack-card.featured:hover { transform: scale(1.05) translateY(-5px); }
+
+.pack-header { background: var(--primary-blue); color: #fff; padding: 20px; font-size: 1.3rem; font-weight: bold;}
+.pack-card.featured .pack-header { background: var(--accent-gold); color: #000; }
+.pack-body { padding: 25px; text-align: left; }
+.pack-body ul { list-style: none; margin-bottom: 20px; }
+.pack-body li { margin-bottom: 12px; font-size: 0.95rem; color: #555; display: flex; gap: 10px;}
+.pack-body i { color: #2ecc71; margin-top: 3px;}
+
+.btn-outline {
+    width: 100%; padding: 10px; background: transparent; border: 2px solid var(--primary-blue);
+    color: var(--primary-blue); font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s;
+}
+.pack-card:hover .btn-outline { background: var(--primary-blue); color: #fff; }
+
+/* =========================================
+   CURSOS ONLINE Y EN VIVO
+   ========================================= */
+.courses-section { padding: 60px 5vw; background: var(--bg-light); text-align: center; }
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 40px;}
+
+.course-card {
+    background: #fff; border-radius: 12px; overflow: hidden; position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left;
+}
+.course-badge {
+    position: absolute; top: 10px; left: 10px; background: #9b59b6; color: #fff;
+    padding: 5px 12px; font-size: 0.75rem; font-weight: bold; border-radius: 20px; z-index: 10;
+}
+.live-badge { background: #e74c3c; } /* Rojo para En Vivo */
+
+.course-img { width: 100%; height: 180px; object-fit: cover; }
+.course-info { padding: 20px; }
+.course-info h4 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 15px; height: 45px;}
+
+.prices { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;}
+.old-price { text-decoration: line-through; color: #95a5a6; font-size: 0.9rem; }
+.discount { background: #e6fced; color: #27ae60; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;}
+.new-price { font-size: 1.4rem; font-weight: bold; color: var(--primary-blue); width: 100%;}
+
+.btn-course {
+    width: 100%; padding: 12px; background: var(--primary-blue); color: #fff;
+    border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.btn-course:hover { background: var(--accent-gold); color: #000;}
+
+/* =========================================
+   FOOTER (MÁS PEQUEÑO Y COMBINADO)
+   ========================================= */
+.main-footer { 
+    text-align: center; 
+    padding: 15px; 
+    background: var(--primary-blue); 
+    color: #fff; 
+    border-top: 3px solid var(--accent-gold); /* Línea que combina */
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   VENTANAS EMERGENTES (MODALES)
+   ========================================= */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+    z-index: 2000; opacity: 0; visibility: hidden; transition: 0.3s;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.custom-modal {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
+    background: #fff; width: 90%; max-width: 500px; padding: 30px; border-radius: 12px;
+    z-index: 2001; opacity: 0; visibility: hidden; transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.custom-modal.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+
+.close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #777;}
+.custom-modal h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.5rem;}
+.custom-modal p { margin-bottom: 15px; color: #555; font-size: 0.95rem;}
+
+.modal-examples { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;}
+.modal-examples ul { margin-top: 10px; padding-left: 20px; font-size: 0.9rem; color: #444;}
+
+.btn-wsp-modal {
+    display: block; text-align: center; background: #25d366; color: #fff;
+    padding: 12px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 1rem;
+}
+.btn-wsp-modal:hover { background: #1ebe57; }
+
+/* Whatsapp Float */
+.whatsapp-float {
+    position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff;
+    width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; transition: 0.3s; text-decoration: none;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .top-layout { flex-direction: column; text-align: center; padding: 40px 5vw; }
+    .hero-left { padding-right: 0; margin-bottom: 40px; }
+    .btn-primary { align-self: center; }
+}
+/* CAMBIAR COLOR DEL BOTÓN HAMBURGUESA EN GASPER */
+.menu-button i {
+    color: #f39c12 !important; /* Cambia este código hexadecimal por el color que desees */
+    font-size: 1.8rem; /* Opcional: puedes ajustar el tamaño aquí */
+}
+/* ==========================================================================
+   HOJA DE ESTILOS BLINDADA: SECCIÓN TESIS PANORÁMICA PREMIUM
+   ========================================================================== */
+
+.panoramic-section {
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 60px auto !important;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.panoramic-card {
+    background-color: #ffffff !important;
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+    display: grid !important;
+    grid-template-columns: 1.2fr 1fr !important; /* Dos columnas proporcionales */
+    overflow: hidden !important;
+    width: 100% !important;
+}
+
+/* --- COLUMNA IZQUIERDA: INFORMACIÓN --- */
+.panoramic-info {
+    padding: 50px 40px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.academy-badge {
+    background: rgba(43, 113, 192, 0.08) !important;
+    color: var(--primary-blue) !important;
+    border: 1px solid rgba(25, 27, 128, 0.2) !important;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.panoramic-info h2 {
+    font-size: 2.4rem !important;
+    color: #1a1a1a !important;
+    margin: 0 0 15px 0 !important;
+    font-weight: 800;
+}
+
+.main-description {
+    font-size: 1.05rem !important;
+    color: #4a5568 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 25px !important;
+}
+
+/* Listado de viñetas */
+.academic-features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 30px 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.academic-features-list li {
+    font-size: 0.95rem !important;
+    color: #2d3748 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.academic-features-list li i {
+    color: #38a169 !important; /* Verde de validación */
+    font-size: 1rem;
+}
+
+/* MÉTRICAS DE ALTO IMPACTO */
+.metrics-panel {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px !important;
+    background-color: #f8fafc !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    border: 1px solid #edf2f7 !important;
+    margin-bottom: 30px !important;
+    text-align: center;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metric-number {
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+    color: var(--primary-blue) !important; /* Rojo académico representativo */
+}
+
+.metric-label {
+    font-size: 0.78rem !important;
+    color: #718096 !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Botón de acción hacia el Portafolio */
+.action-container {
+    width: 100%;
+}
+
+.btn-portfolio-action {
+    display: inline-block !important;
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 14px 30px !important;
+    border-radius: 30px !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: 1px solid #1a1a1a !important;
+    text-align: center;
+}
+
+.btn-portfolio-action:hover {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(43, 113, 192, 0.2) !important;
+}
+
+/* --- COLUMNA DERECHA: VISUALIZADOR SEGURO --- */
+.panoramic-viewer {
+    background-color: #f1f5f9 !important; /* Fondo gris técnico */
+    padding: 40px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.viewer-title {
+    font-size: 0.9rem !important;
+    color: #64748b !important;
+    text-transform: uppercase;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.preview-docs-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100%;
+}
+
+/* Tarjeta del documento simulado */
+.protected-doc-card {
+    background-color: #ffffff !important;
+    border-radius: 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
+    width: 100%;
+}
+
+.doc-tab {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+    color: #475569 !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doc-tab i {
+    color: var(--primary-blue) !important; /* Color PDF */
+}
+
+/* Simulador de hoja física con protección de copia */
+.doc-page-simulator {
+    padding: 20px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    height: 140px; /* Recorta la visualización para mostrar solo una parte */
+    background-color: #ffffff !important;
+    user-select: none !important; /* Bloquea la selección de texto en el navegador */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* TEXTO DIFUMINADO (ANTI-LECTURA COMPLETA) */
+.blurred-academic-text {
+    font-size: 0.75rem !important;
+    color: #94a3b8 !important;
+    line-height: 1.5 !important;
+    filter: blur(2.5px) !important; /* Difumina el texto de forma nativa */
+    opacity: 0.5;
+}
+
+/* MARCA DE AGUA INDESTRUCTIBLE POR TEXTO CSS */
+.css-watermark {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) rotate(-15deg) !important;
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+    color: rgba(0, 0, 0, 0.15) !important; /* Color gris semi-transparente */
+    letter-spacing: 2px;
+    white-space: nowrap !important;
+    pointer-events: none !important; /* Hace que el usuario haga clic a través de ella */
+    z-index: 10 !important;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif !important;
+}
+
+.security-disclaimer {
+    display: block !important;
+    font-size: 0.75rem !important;
+    color: #94a3b8 !important;
+    margin-top: 15px !important;
+    text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD BLINDADA (COMPATIBILIDAD MÓVIL)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .panoramic-card {
+        grid-template-columns: 1fr !important; /* Pasa a formato vertical en pantallas medianas/móviles */
+    }
+    
+    .panoramic-viewer {
+        border-left: none !important;
+        border-top: 1px solid #e2e8f0 !important;
+        padding: 30px 20px !important;
+    }
+    
+    .panoramic-info {
+        padding: 40px 20px !important;
+    }
+    
+    .panoramic-info h2 {
+        font-size: 2rem !important;
+    }
+}
