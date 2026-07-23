@@ -1,315 +1,161 @@
 /*======================================================
-LANDING
+LANDING CONTROLLER
 Portafolio - Nino Raúl Suárez Loras
-Versión 1.0
+Versión 2.0 (Refactorizada)
 ======================================================*/
 
 const title = document.getElementById("title");
-
 const portfolio = document.getElementById("portfolio");
-
 const enterButton = document.getElementById("enterButton");
 
-
-
 const NAME = [
-
     "Nino Raul",
-
     "Suarez Loras"
-
 ];
 
-
-
-const PORTFOLIO = "PORTAFOLIO";
-
-
-
-const BUTTON = "Haz clic para continuar";
-
-
+const PORTFOLIO_TEXT = "PORTAFOLIO";
+const BUTTON_TEXT = "Haz clic para continuar";
 
 /*======================================================
-UTILIDADES
+UTILIDADES Y ESPERAS
 ======================================================*/
 
-function wait(ms){
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-    return new Promise(resolve=>setTimeout(resolve,ms));
-
-}
-
-
-
-/*======================================================
-FUENTES
-======================================================*/
-
-async function waitFonts(){
-
-    if(document.fonts){
-
+async function waitFonts() {
+    if (document.fonts) {
         await document.fonts.ready;
-
     }
-
 }
 
-
-
 /*======================================================
-ESCRIBIR TEXTO
+CONSTRUCCIÓN DEL TÍTULO
 ======================================================*/
 
-async function typeText(element,text,speed=70){
-
-    element.innerHTML="";
-
-
-
-    for(let letter of text){
-
-        element.innerHTML+=letter;
-
-        await wait(speed);
-
-    }
-
-}
-
-
-
-/*======================================================
-CREAR UNA LÍNEA
-======================================================*/
-
-function createLine(text){
-
-    const line=document.createElement("div");
-
-    line.className="title-line";
-
-    for(const character of text){
-
-        const span=document.createElement("span");
-
-        span.className="letter";
-
-        span.textContent=character===" " ? "\u00A0" : character;
-
+function createLine(text) {
+    const line = document.createElement("div");
+    line.className = "title-line";
+    
+    for (const character of text) {
+        const span = document.createElement("span");
+        span.className = "letter";
+        span.textContent = character === " " ? "\u00A0" : character;
         line.appendChild(span);
-
     }
-
     return line;
-
 }
 
-/*======================================================
-MOSTRAR TÍTULO
-======================================================*/
+async function showTitle() {
+    if (!title) return;
+    title.innerHTML = "";
 
-async function showTitle(){
-
-    title.innerHTML="";
-
-    const line1=createLine(NAME[0]);
-
-    const line2=createLine(NAME[1]);
+    const line1 = createLine(NAME[0]);
+    const line2 = createLine(NAME[1]);
 
     title.appendChild(line1);
 
-const space=document.createElement("div");
-space.style.width="18px";
+    const space = document.createElement("div");
+    space.style.width = "18px";
+    title.appendChild(space);
 
-title.appendChild(space);
+    title.appendChild(line2);
 
-title.appendChild(line2);
-
-    const letters=[
-
+    const letters = [
         ...line1.querySelectorAll(".letter"),
-
         ...line2.querySelectorAll(".letter")
-
     ];
 
-    for(const letter of letters){
-
+    for (const letter of letters) {
         await wait(55);
-
         letter.classList.add("show");
-
     }
-
 }
 
-
-
 /*======================================================
-PORTAFOLIO
+REVELADO DE ELEMENTOS
 ======================================================*/
 
-async function showPortfolio(){
-
-    portfolio.style.opacity=0;
-
-    portfolio.innerHTML=PORTFOLIO;
-
-    portfolio.style.transition="opacity .8s";
-
-
-
-    await wait(80);
-
-
-
-    portfolio.style.opacity=1;
-
+async function showPortfolio() {
+    if (!portfolio) return;
+    portfolio.textContent = PORTFOLIO_TEXT;
+    portfolio.style.opacity = "1";
 }
 
-
-
-/*======================================================
-BOTÓN
-======================================================*/
-
-async function showButton(){
-
-    enterButton.style.opacity=0;
-
-    enterButton.innerHTML=BUTTON;
-
-    enterButton.style.transition="opacity .8s";
-
-
-
-    await wait(80);
-
-
-
-    enterButton.style.opacity=1;
-
+async function showButton() {
+    if (!enterButton) return;
+    enterButton.textContent = BUTTON_TEXT;
+    enterButton.style.opacity = "1";
 }
 
-
-
 /*======================================================
-RESPIRACIÓN
+ANIMACIÓN DE RESPIRACIÓN (BUTTON)
 ======================================================*/
 
-function breatheButton(){
+function breatheButton() {
+    if (!enterButton) return;
 
-    setTimeout(()=>{
+    // Obtención segura de delay desde CONFIG o fallback predeterminado
+    const delay = (typeof CONFIG !== 'undefined' && CONFIG.landing && CONFIG.landing.enterDelay) 
+        ? CONFIG.landing.enterDelay 
+        : 500;
 
+    setTimeout(() => {
         enterButton.animate(
-
             [
-
-                {
-
-                    opacity:1,
-
-                    transform:"translateY(0px)"
-
-                },
-
-                {
-
-                    opacity:.45,
-
-                    transform:"translateY(2px)"
-
-                },
-
-                {
-
-                    opacity:1,
-
-                    transform:"translateY(0px)"
-
-                }
-
+                { opacity: 1, transform: "translateY(0px)" },
+                { opacity: 0.45, transform: "translateY(2px)" },
+                { opacity: 1, transform: "translateY(0px)" }
             ],
-
             {
-
-                duration:2200,
-
-                iterations:Infinity,
-
-                easing:"ease-in-out"
-
+                duration: 2200,
+                iterations: Infinity,
+                easing: "ease-in-out"
             }
-
         );
-
-
-
-    },CONFIG.landing.enterDelay);
-
+    }, delay);
 }
 
-
-
 /*======================================================
-INICIO
+INICIALIZACIÓN DE LA LANDING
 ======================================================*/
 
-async function initLanding(){
-
+async function initLanding() {
     await waitFonts();
-
-
-
     await wait(300);
-
-
-
     await showTitle();
-
-
-
     await wait(250);
-
-
-
     await showPortfolio();
-
-
-
     await wait(350);
-
-
-
     await showButton();
-
-
-
     breatheButton();
-
 }
 
-
-
-initLanding();
-
-
+// Iniciar secuencia cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", initLanding);
 
 /*======================================================
-ENTER PORTFOLIO
+EVENTO AL HACER CLIC EN CONTINUAR
 ======================================================*/
 
+if (enterButton) {
+    enterButton.addEventListener("click", () => {
+        enterButton.style.pointerEvents = "none";
 
-enterButton.addEventListener(
-"click",
-()=>{
+        const landingSection = document.getElementById("landing");
+        const mainContent = document.getElementById("main-content");
 
-    enterButton.style.pointerEvents="none";
-
-
-    window.location.href="perfil.html";
-
-
-});
+        // Si existe el contenido en la misma página (Single Page Application)
+        if (landingSection && mainContent) {
+            landingSection.classList.add("fade-out");
+            
+            setTimeout(() => {
+                landingSection.style.display = "none";
+                mainContent.classList.remove("main-content-hidden");
+                mainContent.scrollIntoView({ behavior: "smooth" });
+            }, 800);
+        } else {
+            // Si la arquitectura se mantiene separada por HTML
+            window.location.href = "perfil.html";
+        }
+    });
+}

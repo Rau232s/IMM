@@ -1,0 +1,205 @@
+@import url('../tim.css');
+
+body {
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+body.page-fade-init,
+body.page-fade-out {
+    opacity: 0 !important;
+}
+
+.main-header {
+    height: 70px !important;
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+.no-underline {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* FONDO ANIMADO SUTIL (Tonos azules/púrpuras oscuros) */
+.bg-noticias {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, rgba(10, 15, 30, 0.9), #000 80%);
+    animation: bgShift 15s infinite alternate ease-in-out;
+}
+
+@keyframes bgShift {
+    0% { background: radial-gradient(circle at 20% 80%, rgba(15, 20, 40, 0.9), #000 80%); }   
+    100% { background: radial-gradient(circle at 80% 20%, rgba(25, 10, 35, 0.9), #000 80%); }  
+}
+
+.news-container {
+    padding: 85px 5vw 50px 5vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.news-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* GRILLA DE NOTICIAS */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* TARJETAS DE NOTICIAS CON EFECTO CRISTAL */
+.news-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.news-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.news-source {
+    font-size: 0.8rem;
+    color: #4ade80; /* Tono verde para la fuente */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* BOTONES DE LAS TARJETAS */
+.news-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.news-actions .btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-read {
+    background-color: var(--accent-color);
+    color: #000;
+}
+.btn-read:hover {
+    background-color: #e2e2e2;
+}
+
+.btn-ext {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-ext:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+/* ESTILOS DEL MODAL (VENTANA EMERGENTE) */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 1200px;
+    height: 85vh;
+    background: #fff; /* Fondo blanco para las páginas externas */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: right;
+    transition: background 0.3s;
+}
+
+.close-modal:hover {
+    background: #333;
+    color: #ff6b6b;
+}
+
+#news-iframe {
+    width: 100%;
+    flex-grow: 1;
+    border: none;
+    background: #fff;
+}

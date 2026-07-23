@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NINO RAUL | TIM</title>
+    <link rel="stylesheet" href="tim.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@200;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="header-title">NINO RAUL</h1>
+
+            <label for="menu-toggle" class="hamburger-btn" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+    </header>
+
+    <nav class="sidebar-menu">
+        <label for="menu-toggle" class="close-btn" aria-label="Cerrar menu">&times;</label>
+
+        <div class="menu-content">
+            <ul class="nav-links">
+                <li class="has-submenu">
+                    <input type="checkbox" id="sub-iim" class="submenu-checkbox">
+                    <label for="sub-iim" class="submenu-label">IIM</label>
+                    <ul class="submenu-pool">
+                        <li><a href="../index.html">Inicio Instituto</a></li>
+                        <li><a href="../tesis/tesis.html">Ciencia y tecnologia</a></li>
+                        <li><a href="../mrs/mrs.html">Literatura</a></li>
+                        <li><a href="../monche/monche.html">Gamer</a></li>
+                        <li><a href="../principe/principe.html">Arte</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <input type="checkbox" id="sub-lanzamientos" class="submenu-checkbox">
+                    <label for="sub-lanzamientos" class="submenu-label">Lanzamientos</label>
+                    <ul class="submenu-pool">
+                        <li><a href="../ninoraul/renacer/renacer.html">Renacer Moxeño</a></li>
+                        <li><a href="../ninoraul/canto/canto.html">Canto Ancestral</a></li>
+                        <li><a href="../ninoraul/roof/roof.html">At The Roof</a></li>
+                        <li><a href="../ninoraul/singles/singles.html">Sencillos</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="../ninoraul/tienda/tienda.html" onclick="document.body.style.opacity='0'; setTimeout(() => { window.location.href=this.href; }, 500); return false;" class="main-link">
+                        Tienda
+                    </a>
+                </li>
+                <li>
+                    <a href="../ninoraul/noticias/noticias.html" onclick="document.body.style.opacity='0'; setTimeout(() => { window.location.href=this.href; }, 500); return false;" class="main-link">
+                        Noticias
+                    </a>
+                </li>
+                <li>
+                    <a href="../ninoraul/sobremi/sobremi.html" onclick="document.body.style.opacity='0'; setTimeout(() => { window.location.href=this.href; }, 500); return false;" class="main-link">
+                        Sobre mi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="viewport-gallery-container">
+        <div id="scroll-hint" class="scroll-hint">Gira la rueda del raton para navegar</div>
+
+        <section class="gallery-section active" data-section="0">
+            <div class="gallery-sidebar">
+                <h2 class="gallery-subtitle">Renacer Moxeño:<br><span class="subtitle-bold">Jiro Conevoco</span></h2>
+            </div>
+            <div class="gallery-canvas">
+                <div class="gallery-item item-1"><img src="/imagenes/rm1.jpg" alt="RM 1" class="gallery-img"></div>
+                <div class="gallery-item item-2"><img src="/imagenes/rm2.jpg" alt="RM 2" class="gallery-img"></div>
+                <div class="gallery-item item-3"><img src="/imagenes/rm3.jpg" alt="RM 3" class="gallery-img"></div>
+                <div class="gallery-item item-4"><img src="/imagenes/rm4.jpg" alt="RM 4" class="gallery-img"></div>
+                <div class="gallery-item item-5"><img src="/imagenes/rm5.jpg" alt="RM 5" class="gallery-img"></div>
+                <div class="gallery-item item-6"><img src="/imagenes/rm6.jpg" alt="RM 6" class="gallery-img"></div>
+                <div class="gallery-item item-7"><img src="/imagenes/rm7.jpg" alt="RM 7" class="gallery-img"></div>
+            </div>
+        </section>
+
+        <section class="gallery-section" data-section="1">
+            <div class="gallery-sidebar">
+                <h2 class="gallery-subtitle">Canto Ancestral</h2>
+            </div>
+            <div class="gallery-canvas">
+                <div class="gallery-item item-1"><img src="/imagenes/ca1.jpg" alt="CA 1" class="gallery-img"></div>
+                <div class="gallery-item item-2"><img src="/imagenes/ca2.jpg" alt="CA 2" class="gallery-img"></div>
+                <div class="gallery-item item-3"><img src="/imagenes/ca3.jpg" alt="CA 3" class="gallery-img"></div>
+                <div class="gallery-item item-4"><img src="/imagenes/ca4.jpg" alt="CA 4" class="gallery-img"></div>
+                <div class="gallery-item item-5"><img src="/imagenes/ca5.jpg" alt="CA 5" class="gallery-img"></div>
+                <div class="gallery-item item-6"><img src="/imagenes/ca6.jpg" alt="CA 6" class="gallery-img"></div>
+                <div class="gallery-item item-7"><img src="/imagenes/ca7.jpg" alt="CA 7" class="gallery-img"></div>
+            </div>
+        </section>
+
+        <section class="gallery-section" data-section="2">
+            <div class="gallery-sidebar">
+                <h2 class="gallery-subtitle">At The Roof</h2>
+            </div>
+            <div class="gallery-canvas">
+                <div class="gallery-item item-1"><img src="/imagenes/ar1.jpg" alt="AR 1" class="gallery-img"></div>
+                <div class="gallery-item item-2"><img src="/imagenes/ar2.jpg" alt="AR 2" class="gallery-img"></div>
+                <div class="gallery-item item-3"><img src="/imagenes/ar3.jpg" alt="AR 3" class="gallery-img"></div>
+                <div class="gallery-item item-4"><img src="/imagenes/ar4.jpg" alt="AR 4" class="gallery-img"></div>
+                <div class="gallery-item item-5"><img src="/imagenes/ar5.jpg" alt="AR 5" class="gallery-img"></div>
+                <div class="gallery-item item-6"><img src="/imagenes/ar6.jpg" alt="AR 6" class="gallery-img"></div>
+                <div class="gallery-item item-7"><img src="/imagenes/ar7.jpg" alt="AR 7" class="gallery-img"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".gallery-section");
+            const hint = document.getElementById("scroll-hint");
+            const menuCheckbox = document.getElementById("menu-toggle");
+            let currentIndex = 0;
+            let isTransitioning = false;
+            let hintTimer;
+
+            const isDesktop = () => window.matchMedia("(min-width: 1025px)").matches;
+
+            function resetHintTimer() {
+                clearTimeout(hintTimer);
+                if (hint) hint.classList.add("fade-out");
+
+                hintTimer = setTimeout(() => {
+                    if (hint && isDesktop()) hint.classList.remove("fade-out");
+                }, 5000);
+            }
+
+            function changeSection(nextIndex) {
+                if (nextIndex === currentIndex || isTransitioning) return;
+
+                isTransitioning = true;
+                sections[currentIndex].classList.remove("active");
+
+                setTimeout(() => {
+                    currentIndex = nextIndex;
+                    sections[currentIndex].classList.add("active");
+
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }, 400);
+            }
+
+            hintTimer = setTimeout(() => {
+                if (hint) hint.classList.add("fade-out");
+            }, 4000);
+
+            window.addEventListener("wheel", (event) => {
+                if (!isDesktop() || (menuCheckbox && menuCheckbox.checked)) return;
+
+                event.preventDefault();
+                resetHintTimer();
+
+                if (event.deltaY > 0 && currentIndex < sections.length - 1) {
+                    changeSection(currentIndex + 1);
+                }
+
+                if (event.deltaY < 0 && currentIndex > 0) {
+                    changeSection(currentIndex - 1);
+                }
+            }, { passive: false });
+
+            window.addEventListener("mousemove", (event) => {
+                if (!isDesktop()) return;
+
+                const activeSection = sections[currentIndex];
+                const canvas = activeSection ? activeSection.querySelector(".gallery-canvas") : null;
+                if (!canvas) return;
+
+                const windowWidth = window.innerWidth;
+                const startThreshold = windowWidth * 0.4;
+
+                if (event.clientX > startThreshold) {
+                    const range = windowWidth - startThreshold;
+                    const percentage = (event.clientX - startThreshold) / range;
+                    canvas.style.transform = `translateX(${percentage * -45}%)`;
+                } else {
+                    canvas.style.transform = "translateX(0%)";
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                sections.forEach((section) => {
+                    const canvas = section.querySelector(".gallery-canvas");
+                    if (canvas) canvas.style.transform = "";
+                });
+            });
+
+            document.querySelectorAll(".section-link").forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const targetIndex = parseInt(link.getAttribute("data-target-section"), 10);
+                    if (Number.isInteger(targetIndex)) changeSection(targetIndex);
+                    if (menuCheckbox) menuCheckbox.checked = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
