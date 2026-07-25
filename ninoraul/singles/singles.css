@@ -1,10 +1,22 @@
 @import url('../tim.css');
 
-/* DESBLOQUEAR EL SCROLL VERTICAL PARA ESTA PÁGINA */
+/* DESBLOQUEAR EL SCROLL VERTICAL Y OCULTAR LA BARRA VISIBLE */
 html, body {
     overflow-y: auto !important;
     height: auto !important;
     position: relative;
+    
+    /* Para Firefox */
+    scrollbar-width: none;
+    
+    /* Para Internet Explorer y Edge antiguo */
+    -ms-overflow-style: none;
+}
+
+/* Para Chrome, Safari, Edge moderno y Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
 }
 /* ENTRADA Y SALIDA FADE */
 body {
