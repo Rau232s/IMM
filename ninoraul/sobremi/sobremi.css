@@ -102,16 +102,29 @@ body.page-fade-out {
 
 .gallery-track img {
     width: 100%;
-    object-fit: contain; 
+    height: auto; /* Mantiene la proporción */
+    aspect-ratio: 2 / 3; /* Opcional: le da un formato fijo tipo retrato para uniformidad */
+    object-fit: cover; /* Cambiar a cover evita espacios vacíos si usas aspect-ratio */
     display: block;
+    border-radius: 4px; /* Opcional: mejora estética */
 }
 
 /* ANIMACIONES INFINITAS DE BUCLE MÁS RÁPIDAS (20 segundos en vez de 40) */
+/* ANIMACIONES INFINITAS DE BUCLE */
 .scroll-up {
-    animation: scrollUpAnim 26s linear infinite;
+    animation: scrollUpAnim 70s linear infinite;
+    will-change: transform; /* Vuelve la animación fluida y suave en la GPU */
 }
+
 .scroll-down {
-    animation: scrollDownAnim 26s linear infinite;
+    animation: scrollDownAnim 70s linear infinite;
+    will-change: transform; /* Vuelve la animación fluida y suave en la GPU */
+}
+
+/* Pausa suave cuando el usuario pase el cursor sobre las fotos (Opcional pero muy útil) */
+.gallery-wrapper:hover .scroll-up,
+.gallery-wrapper:hover .scroll-down {
+    animation-play-state: paused;
 }
 
 /* Al estar duplicadas (20 fotos en total por track), desplazamos hasta el 50% exacto para hacer el loop perfecto */
