@@ -405,3 +405,13 @@ body {
         width: 220px !important;
     }
 }
+/* Dispositivos Micro (240px x 320px o menos) */
+@media (max-width: 240px) and (max-height: 320px) {
+    html {
+        font-size: 11px;
+    }
+    
+    .container {
+        padding: 0 5px;
+    }
+}
