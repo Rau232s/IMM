@@ -3,174 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto de Inteligencias Múltiples</title>
+    <title>Instituto de Inteligencias Múltiples (IIM) | Cursos Online y Reforzamiento Académico</title>
+    <meta name="description" content="Aprende Matemática, Física y Química con docentes especializados. Clases en vivo, seguimiento personalizado e integración académica integral.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="header-content">
-            <div class="logo-container">
-                <a href="index.html"><img src="imagenes/logo.avif" alt="Logo" class="site-logo"></a>
-            </div>
-            <div class="title-container">
-                <h1>Instituto de Inteligencias Múltiples</h1>
-            </div>
-            <div class="menu-container">
-                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-                <label for="menu-toggle" class="menu-button">
+    <div class="bg-fixed-overlay"></div>
+
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="brand">
+                <img src="logo-IIM.jpg" alt="Logo Instituto de Inteligencias Múltiples" class="logo-img">
+                <span class="brand-text">IIM <span>Academy</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Inicio</a></li>
+                    <li><a href="#cursos" class="nav-link">Plan Integral</a></li>
+                    
+                    <li><a href="#beneficios" class="nav-link">¿Por qué IIM?</a></li>
+                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#faq" class="nav-link">Preguntas Frecuentes</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://api.whatsapp.com/send/?phone=59165200690&text=Hola+IIM+Academy%2C+estoy+interesado+en+inscribirme+o+recibir+m%C3%A1s+detalles+sobre%3A+%2APlan+Acad%C3%A9mico+Integral+IIM%2A.&type=phone_number&app_absent=0" class="btn btn-outline btn-sm">Inscribirme</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
                     <i class="fa-solid fa-bars"></i>
-                </label>
-                <nav class="dropdown-menu">
-                    <ul>
-                        <li><a href="index.html#sobre-mi">Quiénes Somos</a></li>
-                        <li><a href="tesis/tesis.html">Ciencia y Tecnología</a></li>
-                        <li><a href="ninoraul/ninoraul.html">Música</a></li>
-                        <li><a href="principe/principe.html">Arte</a></li>
-                        <li><a href="monche/monche.html">E&Sport</a></li>
-                        <li><a href="mrs/mrs.html">Literatura y Oratoria</a></li>
-                    </ul>
-                </nav>
+                </button>
             </div>
         </div>
     </header>
 
-    <div class="header-spacing"></div>
-
-    <section id="sobre-mi" class="intro-section">
-        <h2>Mis 5 Personalidades y Yo</h2>
-        <p>Bienvenido a mi ecosistema. No somos lineales; poseemos múltiples capacidades que se complementan. Explora mis diferentes facetas y potencia tus habilidades.</p>
-    </section>
-
-    <main class="grid-personalidades">
-
-        <article class="card card-monche">
-            <div class="card-image-wrapper">
-                <img src="imagenes/monche-landing.avif" alt="E&Sports Cursos" class="card-img">
-            </div>
-            <div class="card-header">
-                <h3>Monche TV</h3>
-                <span class="card-tag">Gamer / Audiencia</span>
-            </div>
-            <div class="card-body">
-                <p>El espacio donde la pasión por los videojuegos se convierte en comunidad. Domina el streaming y el entretenimiento digital.</p>
-                <a href="monche/monche.html" class="btn-curso">Ver Cursos Gamer</a>
-            </div>
-        </article>
-
-        <article class="card card-principe">
-            <div class="card-image-wrapper">
-                <img src="imagenes/principe-landing.jpg" alt="Arte y Dibujo" class="card-img">
-            </div>
-            <div class="card-header">
-                <h3>El Bazar de Príncipe</h3>
-                <span class="card-tag">Arte y Dibujo</span>
-            </div>
-            <div class="card-body">
-                <p>Expresión visual pura. Aprende técnicas de ilustración digital, dibujo conceptual y desata tu creatividad.</p>
-                <a href="principe/principe.html" class="btn-curso">Explorar Cursos de Arte</a>
-            </div>
-        </article>
-
-        <article class="card card-tim">
-            <div class="card-image-wrapper">
-                <img src="imagenes/tim-landing.jpg" alt="Composición Musical" class="card-img">
-            </div>
-            <div class="card-header">
-                <h3>Tim</h3>
-                <span class="card-tag">Músico / Compositor</span>
-            </div>
-            <div class="card-body">
-                <p>Producción y teoría musical práctica. Venta de composiciones originales y masterclasses de audio multimedia.</p>
-                <a href="ninoraul/ninoraul.html" class="btn-curso">Ver Cursos Musicales</a>
-            </div>
-        </article>
-
-        <article class="card card-gasper">
-            <div class="card-image-wrapper">
-                <img src="imagenes/gasper-landing.jpg" alt="Consultoría e Ingeniería" class="card-img">
-            </div>
-            <div class="card-header">
-                <h3>Gasper</h3>
-                <span class="card-tag">Pasante Petroquímico</span>
-            </div>
-            <div class="card-body">
-                <p>Análisis riguroso y soluciones exactas. Aprende fundamentos de ingeniería y procesos petroquímicos avanzados.</p>
-                <a href="gasper/gasper.html" class="btn-curso">Ver Consultoría y Cursos</a>
-            </div>
-        </article>
-
-        <article class="card card-mrs">
-            <div class="card-image-wrapper">
-                <img src="imagenes/mrs-landing.jpg" alt="Oratoria y Escritura" class="card-img">
-            </div>
-            <div class="card-header">
-                <h3>La Librería de Mr S</h3>
-                <span class="card-tag">Escritor / Oratoria</span>
-            </div>
-            <div class="card-body">
-                <p>Domina el poder de la oratoria. Escribe con impacto y aprende a persuadir a grandes audiences con tu voz.</p>
-                <a href="mrs/mrs.html" class="btn-curso">Ver Cursos de Oratoria</a>
-            </div>
-        </article>
-
-        <article class="card card-social">
-            <div class="card-header social-header">
-                <h3>Ecosistema Digital</h3>
-                <span class="card-tag">Nuestras Redes Sociales</span>
-            </div>
-            <div class="card-body social-body">
-                
-                <div class="social-group">
-                    <h4><i class="fa-solid fa-guitar"></i> Tim</h4>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/nino_raul_/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                        <a href="https://open.spotify.com" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
-                        <a href="https://www.youtube.com/channel/UC-lfb0CW7xkIAv8Nk9hix2g" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="badge"><i class="fa-solid fa-graduation-cap"></i> Inscripciones Abiertas 2026</span>
+                    <h1 class="hero-title">Aprende Matemática, Física y Química con docentes especializados.</h1>
+                    <p class="hero-subtitle">Clases 100% en vivo, grupos reducidos, seguimiento personalizado y una metodología diseñada para mejorar tu rendimiento académico.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary btn-ws" data-course="Plan General (Hero)">Inscribirme ahora <i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#cursos" class="btn btn-secondary ">Ver programas <i class="fa-solid fa-arrow-down"></i></a>
                     </div>
                 </div>
-
-                <div class="social-group">
-                    <h4><i class="fa-solid fa-gamepad"></i> Monche TV</h4>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/monche_tv" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                        <a href="https://www.twitch.tv/monche_tv" target="_blank"><i class="fa-brands fa-twitch"></i> Twitch</a>
-                        <a href="https://www.tiktok.com/@monche_tv" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                <div class="hero-image reveal">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" alt="Estudiantes en clases virtuales IIM">
                     </div>
                 </div>
-
-                <div class="social-group">
-                    <h4><i class="fa-solid fa-palette"></i> Príncipe</h4>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/principe.bazar" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                    </div>
-                </div>
-
-                <div class="social-group">
-                    <h4><i class="fa-solid fa-flask"></i> Gasper</h4>
-                    <div class="social-links">
-                        <a href="https://www.tiktok.com/@elpasantepetroquimico" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
-                    </div>
-                </div>
-
-                <div class="social-group">
-                    <h4><i class="fa-solid fa-book"></i> La Librería de Mr S</h4>
-                    <div class="social-links">
-                        <a href="https://open.spotify.com/show/4cIQG1Koq3U0ldyMTobAiS" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
-                        <a href="https://podcasts.apple.com/us/podcast/la-librer%C3%ADa-de-mr-s/id1601502657" target="_blank"><i class="fa-solid fa-podcast"></i> Podcasts</a>
-                    </div>
-                </div>
-
             </div>
-        </article>
+        </section>
 
+
+        <section id="cursos" class="seccion-cursos">
+  <div class="contenedor-principal">
+    
+    <div class="encabezado-seccion">
+      <h2>Nuestra Oferta Académica</h2>
+      <p>Programas diseñados para potenciar tus habilidades y asegurar tus resultados.</p>
+    </div>
+
+    <div class="grid-personalidades">
+      
+      <article class="course-card card-combo" data-color="matematica" data-nombre="Plan Ciencias">
+        
+        <div class="course-face course-front">
+          <div class="card-badge">Más Completo</div>
+          <div class="course-icon">📐</div>
+          <h3>Plan Integral de Ciencias</h3>
+          <p class="subtitulo">Física + Química + Matemática</p>
+          <p class="target-audiencia"><strong>Para:</strong> Primaria, Secundaria y Preuniversitarios.</p>
+          <p class="gancho-ventas">Domina las ciencias exactas, resuelve problemas con seguridad y asegura tu ingreso a la universidad.</p>
+          
+          <button class="btn-ver-precios">Ver Planes y Beneficios</button>
+          <button
+    class="btn-inscribir"
+    data-tier="Mensual"
+    data-precio="250"
+    onclick="window.open('https://api.whatsapp.com/send/?phone=59165200690&text=Hola+IIM+Academy%2C+estoy+interesado+en+inscribirme+o+recibir+m%C3%A1s+detalles+sobre%3A+%2APlan+Acad%C3%A9mico+Integral+IIM%2A.&type=phone_number&app_absent=0','_blank')">
+    Inscripción Rápida
+</button>
+        </div>
+        
+        <div class="course-face course-back">
+          <h4>¿Qué incluye el plan?</h4>
+          <ul class="feature-list">
+            <li>💻 Modalidad 100% en vivo</li>
+            <li>📅 3 clases por semana</li>
+            <li>🕐 1 hora por clase (12 al mes)</li>
+            <li>🎯 Enfoque 100% práctico</li>
+            <li>📚 Material de apoyo incluido</li>
+            <li>🎓 Certificado al finalizar</li>
+          </ul>
+          
+          <div class="tier-block tier-premium">
+            <div class="tier-title"><b>Inversión Única</b> <span class="tier-price-highlight">Bs 250 / mes</span></div>
+          </div>
+          
+          <button
+    class="btn-whatsapp btn-inscribir"
+    data-tier="Mensual"
+    data-precio="250"
+    onclick="window.open('https://api.whatsapp.com/send?phone=59165200690&text=Hola%20IIM%20Academy.%20Estoy%20interesado%20en%20inscribirme%20en%20uno%20de%20sus%20cursos%20acad%C3%A9micos.%0A%0A📘%20Curso%20(Mat%C3%A9matica%2C%20F%C3%ADsica%2C%20Qu%C3%ADmica%20o%20Plan%20Integral)%3A%0A🎓%20Nivel%20(Primaria%2C%20Secundaria%20o%20Preuniversitario)%3A%0A🕒%20Horario%20de%20preferencia%3A%0A%0AMe%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20el%20inicio%20de%20clases%20y%20el%20proceso%20de%20inscripci%C3%B3n.%20%C2%A1Gracias!','_blank')">
+    ¡Asegurar mi cupo!
+</button>
+          <button class="btn-volver">Volver</button>
+        </div>
+      </article>
+
+      <article class="course-card" data-color="oratoria" data-nombre="Oratoria Estudiantil">
+        
+        <div class="course-face course-front">
+          <div class="course-icon">🎤</div>
+          <h3>Oratoria Estudiantil</h3>
+          <p class="subtitulo">Expresión y Liderazgo</p>
+          <p class="target-audiencia"><strong>Para:</strong> Jóvenes y adultos.</p>
+          <p class="gancho-ventas">Pierde el miedo escénico, habla con seguridad y destaca en cualquier presentación con técnicas comprobadas.</p>
+          
+          <button class="btn-ver-precios">Ver Planes y Beneficios</button>
+          <button
+    class="btn-inscribir"
+    data-tier="Mensual"
+    data-precio="250"
+    onclick="window.open('https://api.whatsapp.com/send/?phone=59165200690&text=Hola+IIM+Academy%2C+estoy+interesado+en+inscribirme+o+recibir+m%C3%A1s+detalles+sobre%3A+%2APlan+Acad%C3%A9mico+Integral+IIM%2A.&type=phone_number&app_absent=0','_blank')">
+    Inscripción Rápida
+</button>
+        </div>
+        
+        <div class="course-face course-back">
+          <h4 class="back-title">Elige tu Plan</h4>
+          <ul class="feature-list feature-list-spaced">
+            <li>🎙️ Dicción y lenguaje corporal</li>
+            <li>📹 Grabación y evaluación</li>
+            <li>📜 Valor curricular</li>
+          </ul>
+          
+          <div class="tier-block">
+            <div class="tier-title"><b>Plan Avance</b> <span>Bs 250</span></div>
+            <div class="tier-sub">2 clases/sem (8 al mes)</div>
+            <button
+    class="btn-inscribir btn-tier-action"
+    data-tier="Avance"
+    data-precio="250"
+    onclick="window.open('https://api.whatsapp.com/send?phone=59165200690&text=Hola%20IIM%20Academy.%20Estoy%20interesado%20en%20inscribirme%20en%20el%20Programa%20de%20Oratoria%20y%20Liderazgo%20-%20Plan%20Avance%20(Bs%20250%2Fmes).%0A%0AMe%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20cantidad%20de%20clases%20por%20semana%2C%20los%20horarios%2C%20la%20fecha%20de%20inicio%20y%20el%20proceso%20de%20inscripci%C3%B3n.%20%C2%A1Gracias!','_blank')">
+    Elegir Avance
+</button>
+          </div>
+          
+          <div class="tier-block tier-premium tier-oratoria-elite">
+            <div class="tier-title"><b class="text-green">Plan Élite</b> <span class="text-green">Bs 300</span></div>
+            <div class="tier-sub">3 clases/sem (12 al mes)</div>
+            <button
+    class="btn-whatsapp btn-inscribir btn-tier-action"
+    data-tier="Elite"
+    data-precio="300"
+    onclick="window.open('https://api.whatsapp.com/send?phone=59165200690&text=Hola%20IIM%20Academy.%20Estoy%20interesado%20en%20inscribirme%20en%20el%20Programa%20de%20Oratoria%20y%20Liderazgo%20-%20Plan%20%C3%89lite%20(Bs%20300%2Fmes).%0A%0AMe%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20horarios%2C%20la%20fecha%20de%20inicio%20y%20el%20proceso%20de%20inscripci%C3%B3n.%20%C2%A1Gracias!','_blank')">
+    Elegir Élite
+</button>
+          </div>
+          
+          <button class="btn-volver">Volver</button>
+        </div>
+      </article>
+
+      <article class="course-card" data-color="tesis" data-nombre="Asesoría de Tesis">
+        
+        <div class="course-face course-front">
+          <div class="course-icon">🎓</div>
+          <h3>Asesoría Integral de Tesis</h3>
+          <p class="subtitulo">De la Idea a la Defensa Final</p>
+          <p class="target-audiencia"><strong>Para:</strong> Universitarios y Posgrado.</p>
+          <p class="gancho-ventas">Avanza sin bloqueos. Te guiamos paso a paso con metodología impecable hasta lograr tu titulación.</p>
+          
+          <button class="btn-ver-precios">Ver Paquetes</button>
+          <button
+    class="btn-inscribir"
+    data-tier="Info"
+    data-precio="0"
+    onclick="window.open('https://api.whatsapp.com/send?phone=59165200690&text=Hola%20IIM%20Academy.%20Estoy%20interesado%20en%20recibir%20informaci%C3%B3n%20sobre%20la%20asesor%C3%ADa%20de%20tesis%20o%20monograf%C3%ADas.%20%C2%BFPodr%C3%ADan%20brindarme%20m%C3%A1s%20detalles%20sobre%20el%20servicio%2C%20costos%20y%20disponibilidad%3F','_blank')">
+    Consultar Disponibilidad
+</button>
+        </div>
+        
+        <div class="course-face course-back">
+          <h4 class="back-title">Paquetes de Asesoría</h4>
+          
+          <ul class="pricing-list">
+            <li>
+              <div class="pricing-info">
+                <b>Monografía</b><br>
+                <span class="pricing-sub">Hasta 10 pág, APA, revisión</span>
+              </div>
+              <b class="pricing-val">Bs 180+</b>
+            </li>
+            
+            <li>
+              <div class="pricing-info">
+                <b>Proyecto Inv.</b><br>
+                <span class="pricing-sub">Metodología, Marco Teórico</span>
+              </div>
+              <b class="pricing-val">Bs 350+</b>
+            </li>
+            
+            <li class="pricing-highlight">
+              <div class="pricing-info">
+                <b class="text-purple-light">Tesis Completa</b><br>
+                <span class="pricing-sub-light">Integral, APA, prep. defensa</span>
+              </div>
+              <b class="text-green pricing-val-large">Bs 800+</b>
+            </li>
+          </ul>
+          
+          <button
+    class="btn-whatsapp btn-inscribir"
+    data-tier="Tesis"
+    data-precio="Cotizar"
+    onclick="window.open('https://api.whatsapp.com/send?phone=59165200690&text=Hola%20IIM%20Academy.%20Quisiera%20cotizar%20mi%20proyecto%20de%20tesis%20o%20monograf%C3%ADa.%0A%0A📚%20Carrera%3A%0A🏫%20Universidad%3A%0A📄%20Tipo%20de%20trabajo%20(Tesis%2C%20Monograf%C3%ADa%2C%20Proyecto%20de%20Grado%2C%20etc.)%3A%0A📑%20N%C3%BAmero%20aproximado%20de%20p%C3%A1ginas%3A%0A📅%20Fecha%20de%20entrega%3A%0A%0APor%20favor%2C%20quisiera%20recibir%20una%20cotizaci%C3%B3n%20y%20conocer%20la%20disponibilidad.','_blank')">
+    Cotizar mi proyecto
+</button>
+          <button class="btn-volver">Volver</button>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="beneficios-generales">
+      <h3>¿Por qué elegir el IIM?</h3>
+      <div class="grid-pilares">
+        <div class="pilar card">
+          <span class="icono">👨‍🏫</span>
+          <h4>Tutores Especializados</h4>
+          <p>Docentes con amplia experiencia en cada área.</p>
+        </div>
+        <div class="pilar card">
+          <span class="icono">⏰</span>
+          <h4>Horarios Flexibles</h4>
+          <p>Modalidad adaptada a tu ritmo académico.</p>
+        </div>
+        <div class="pilar card">
+          <span class="icono">💬</span>
+          <h4>Soporte Continuo</h4>
+          <p>Resolución de dudas directo por WhatsApp.</p>
+        </div>
+        <div class="pilar card">
+          <span class="icono">📈</span>
+          <h4>Resultados Reales</h4>
+          <p>Metodología enfocada en aprobación y dominio.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+        <section id="beneficios" class="section bg-glass">
+            <div class="container">
+                <div class="section-title text-center reveal">
+                    <h2>¿Por qué estudiar en IIM?</h2>
+                    <p>Valores que garantizan la excelencia de nuestra metodología académica</p>
+                </div>
+
+                <div class="features-grid reveal">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <h3>Docentes Especializados</h3>
+                        <p>Profesionales apasionados con amplia experiencia pedagógica.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-video"></i>
+                        <h3>Clases 100% en Vivo</h3>
+                        <p>Interacción directa en tiempo real para resolver dudas al instante.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <h3>Acceso a Grabaciones</h3>
+                        <p>Repasa las lecciones cuando quieras a lo largo de tu aprendizaje.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <h3>Material Actualizado</h3>
+                        <p>Guías, exámenes prácticos y recursos adaptados a las exigencias.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <h3>Soporte por WhatsApp</h3>
+                        <p>Atención directa para consultas académicas y administrativas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-user-check"></i>
+                        <h3>Seguimiento Personalizado</h3>
+                        <p>Evaluamos tu progreso de forma individual para asegurar resultados.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Evaluaciones Periódicas</h3>
+                        <p>Simulacros periódicos para medir la retención del conocimiento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-award"></i>
+                        <h3>Certificados Digitales</h3>
+                        <p>Acreditación de tu rendimiento académico emitida por IIM.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="section">
+            <div class="container">
+                <div class="section-title text-center reveal">
+                    <h2>Testimonios de Estudiantes</h2>
+                    <p>Historias reales de éxito académico en nuestro instituto</p>
+                </div>
+
+                <div class="testimonial-carousel-wrapper reveal">
+                    <button class="carousel-btn prev-btn" id="prevTestimonial" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                    
+                    <div class="testimonial-slider" id="testimonialSlider">
+                        <div class="testimonial-card active">
+                            <div class="testimonial-img">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Estudiante Lucía R.">
+                            </div>
+                            <p class="testimonial-text">"Gracias al Plan Integral pude aprobar el examen de ingreso preuniversitario sin complicaciones. Las clases de Física y Química fueron muy didácticas."</p>
+                            <h4>Lucía Ramírez</h4>
+                            <span class="testimonial-course">Plan Preuniversitario</span>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-img">
+                                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop" alt="Estudiante Mateo G.">
+                            </div>
+                            <p class="testimonial-text">"La asesoría de tesis me salvó. Estaba estancado con las Normas APA y la parte estadística, pero el mentor me guió paso a paso hasta mi defensa."</p>
+                            <h4>Mateo Gómez</h4>
+                            <span class="testimonial-course">Asesoría de Tesis</span>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-img">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" alt="Estudiante Sofia M.">
+                            </div>
+                            <p class="testimonial-text">"El curso de Oratoria cambió mi forma de exponer en el colegio. Perdí el miedo a hablar en público y ahora lidero los grupos de exposición."</p>
+                            <h4>Sofía Mendoza</h4>
+                            <span class="testimonial-course">Curso de Oratoria</span>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" id="nextTestimonial" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section bg-glass">
+            <div class="container">
+                <div class="section-title text-center reveal">
+                    <h2>Preguntas Frecuentes</h2>
+                    <p>Aclara tus dudas sobre la modalidad y servicios de IIM Academy</p>
+                </div>
+
+                <div class="faq-accordion reveal">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Las clases quedan grabadas?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>¡Sí! Todas las sesiones en vivo se graban y se suben a la plataforma para que puedas repasarlas en cualquier momento durante la duración del curso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Cómo me inscribo a un curso?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Solo haz clic en cualquiera de los botones "Inscribirme" o "Más información", lo cual te redirigirá a nuestro canal oficial de WhatsApp donde te enviaremos la ficha de inscripción.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Qué necesito para asistir a las clases en vivo?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Únicamente una computadora, tablet o teléfono celular con conexión a internet estable y la aplicación Zoom/Google Meet instalada.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Entregan certificado de participación?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, al finalizar y aprobar el programa académico correspondiente entregamos un certificado digital acreditado por el Instituto de Inteligencias Múltiples.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Hay grupos diferenciados por nivel académico?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutamente. Contamos con grupos para Nivel Básico, Secundaria y Preuniversitario para garantizar un ritmo adecuado a las necesidades de cada estudiante.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>¿Cómo realizo el pago de la mensualidad?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Aceptamos pagos mediante transferencia bancaria, código QR (simple) y depósitos directos. Te proporcionamos los datos al momento de iniciar tu inscripción por WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section text-center">
+            <div class="container reveal">
+                <h2>Empieza hoy tu camino hacia mejores resultados académicos.</h2>
+                <p>Únete a cientos de estudiantes que mejoran sus conocimientos con IIM Academy.</p>
+                <a href="#" class="btn btn-primary btn-lg btn-ws" data-course="Inscripción Inmediata (CTA Final)">Inscribirme ahora <i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </section>
     </main>
 
-    <footer class="main-footer">
-        <p class="footer-phrase">"El conocimiento es de todos y para todos" N.R.S.L.</p>
-        <p class="footer-copy">© 2026 Instituto de Inteligencias Múltiples. Todos los derechos reservados.</p>
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col brand-col">
+                <a href="#" class="brand">
+                    <img src="logo-IIM.png" alt="Logo Instituto de Inteligencias Múltiples" class="logo-img">
+                    <span class="brand-text">IIM <span>Academy</span></span>
+                </a>
+                <p>Excelencia pedagógica en ciencias exactas y formación integral para estudiantes apasionados.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#plan-integral">Plan Integral</a></li>
+                    <li><a href="#cursos">Cursos Especializados</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Redes Sociales</h4>
+                <div class="social-links">
+                    <a href="https://wa.me/59165200690" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <p class="mt-2"><i class="fa-regular fa-envelope"></i> contacto@iimacademy.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2026 Instituto de Inteligencias Múltiples (IIM). Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="script1.js"></script>
 </body>
 </html>
